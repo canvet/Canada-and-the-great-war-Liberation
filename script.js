@@ -124,21 +124,36 @@ imgparallaxleft.forEach((parallax, i) => {
 
 
 
-// var bodychangecolor = gsap.timeline();
-// bodychangecolor.to("body",1, {background: 'red'});
+const imgparallaxzoomin = gsap.utils.toArray('#int-imgzin');
 
-//   ScrollTrigger.create({
+imgparallaxzoomin.forEach((parallax, i) => {
+  const anim2 = gsap.to(parallax, {backgroundSize: "150%"});
+  ScrollTrigger.create({
+    trigger: parallax,
+    start: "left right",
+    animation: anim2,
+    horizontal: true,
+    scroller: scrollbar,
+    scrub: true
+  });
+});
 
-//     trigger: "#sectionFour",
-//     start: "left center",
-//     horizontal: true,
-//     scroller: scrollbar,
-//     animation: bodychangecolor,
-//     // scrub: true,
-//     markers: true,
-//     toggleActions: 'play none none reverse' 
+
+var bodychangecolor = gsap.timeline();
+bodychangecolor.to("body",1, {background: 'black'});
+
+  ScrollTrigger.create({
+
+    trigger: "#sectionNine",
+    start: "left center",
+    horizontal: true,
+    scroller: scrollbar,
+    animation: bodychangecolor,
+    // scrub: true,
+    markers: true,
+    toggleActions: 'play none none reverse' 
   
-// });
+});
 
 
 

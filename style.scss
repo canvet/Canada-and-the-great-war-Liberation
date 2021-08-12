@@ -124,18 +124,18 @@ ul li span.active{
   .wrapper{
     display: flex;
     flex-wrap: nowrap;
-    width: 600%;
+    width: 2000vh;
     overflow:hidden;
   }
   
   
   .int-s1{
     background: red;
-    width: 200vh;
+    width: 100vw;
     height: 100vh;
     background: url(cover.jpg);
     background-repeat: no-repeat;
-    background-size: 110%;
+    background-size: cover;
     background-position: 0% 10%;
   }
   
@@ -217,7 +217,7 @@ ul li span.active{
 
   .para{
       font-size: 2vh;
-      max-width: 80%;
+      max-width: 40vh;
       text-align: justify;
       font-family: freight-big-pro, serif;
     font-weight: 500;
@@ -282,6 +282,7 @@ ul li span.active{
       display: flex;
       flex-direction: column;
       justify-content: flex-end;
+      max-width: 40vh;
   }
 
   .photocredittext{
@@ -370,12 +371,12 @@ ul li span.active{
   
 
   .int-s7{
-    width: 300vh;
+    width: 400vh;
     height: 100vh; 
     display: grid;
-   grid-template-columns: 1fr 0.5fr 1fr 0.5fr;
+   grid-template-columns: 1fr 0.5fr 1.2fr 0.5fr;
    padding: 5rem;
-//    background: lightcoral;
+  //  background: lightcoral;
   }
 
   .s7-s1{
@@ -388,16 +389,17 @@ ul li span.active{
       display: flex;
       justify-content: center;
       align-items: center;
-    //   background: yellow;
+      // background: yellow;
      
   }
 
   .img-container{
-    width: 80vh;
-    height: 60vh;
+    width: 100vh;
+    height: 100%;
+    padding: 5rem;
     background: url(int-img3.jpg);
-    background-size: cover;
-    background-repeat: repeat;
+    background-size: 200%;
+    background-repeat: no-repeat;
     background-position: 50% 50%;
   }
 
@@ -405,19 +407,73 @@ ul li span.active{
       width: 30vh;
       object-fit: contain;
       margin-left: -12rem;
+      z-index: 1;
       z-index: -1;
-    //   z-index: -1;
      
   }
 
-//   .s7-s2{
-//     display: grid;
-//     grid-template-rows: 1fr 0.5fr;
-//     background: red;
-//   }
+  .s7-s2, .s7-s4{
+    display: grid;
+    background: yellowgreen;
+  }
 
 
+  .int-s8{
+    width: 140vh;
+    height: 100vh;
+    background: url('int-img4.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 0% 50%;
+    display: flex;
+    align-items: flex-end;
+    padding: 5rem;
 
+  }
+
+  .int-s9{
+    width: 250vh;
+    height: 100vh;
+    // background: black;
+    padding:5rem;
+    display: grid;
+    grid-template-columns: 0.8fr 0.8fr 0.5fr;
+  }
+
+  .s9-s2{
+// background: yellow;
+display: grid;
+  }
+
+  .img-container2{
+    width: 70vh;
+    height: 100%;
+    padding: 5rem;
+    background: url(int-img5.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 0% 50%;
+  }
+
+
+  .white{
+    color: white;
+  }
+
+
+  .int-s10{
+    width: 250vh;
+    height: 100vh;
+    background: url(int-img6.jpg);
+    background-size: 110%;
+    background-repeat: no-repeat;
+    background-position: 0% 50%;
+    padding: 5rem;
+   display: flex;
+   align-items: flex-start;
+   justify-content: flex-end;
+    
+  }
 
   
 
@@ -427,12 +483,12 @@ ul li span.active{
   
 
 
-  @media only screen and (max-width: 768px) {
+//   @media only screen and (max-width: 768px) {
 
-.section-1{
-    background-size: cover;
-    // background-position:40% 10%;
+// .section-1{
+//     background-size: cover;
+//     // background-position:40% 10%;
    
-}
+// }
 
-  }
+//   }
