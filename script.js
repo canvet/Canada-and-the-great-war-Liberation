@@ -127,7 +127,7 @@ imgparallaxleft.forEach((parallax, i) => {
 const imgparallaxzoomin = gsap.utils.toArray('#int-imgzin');
 
 imgparallaxzoomin.forEach((parallax, i) => {
-  const anim2 = gsap.to(parallax, {backgroundSize: "150%"});
+  const anim2 = gsap.to(parallax, {backgroundSize: "110%"});
   ScrollTrigger.create({
     trigger: parallax,
     start: "left right",
@@ -139,21 +139,40 @@ imgparallaxzoomin.forEach((parallax, i) => {
 });
 
 
-var bodychangecolor = gsap.timeline();
-bodychangecolor.to("body",1, {background: 'black'});
 
-  ScrollTrigger.create({
 
-    trigger: "#sectionNine",
-    start: "left center",
-    horizontal: true,
-    scroller: scrollbar,
-    animation: bodychangecolor,
-    // scrub: true,
-    markers: true,
-    toggleActions: 'play none none reverse' 
-  
+
+// Change body background color for varius sections   //
+window.addEventListener("load", function () {
+  const scrollColorElems = document.querySelectorAll("[data-bgcolor]");
+  scrollColorElems.forEach((colorSection, i) => {
+    const prevBg = i === 0 ? "" : scrollColorElems[i - 1].dataset.bgcolor;
+    const prevText = i === 0 ? "" : scrollColorElems[i - 1].dataset.textcolor;
+
+    ScrollTrigger.create({
+      trigger: colorSection,
+      scroller: scrollbar,
+      start: "left 80%",
+      horizontal: true,
+      onEnter: () =>
+        gsap.to("body", 1, {
+          backgroundColor: colorSection.dataset.bgcolor,
+          color: colorSection.dataset.textcolor,
+          overwrite: "auto"
+        }),
+      onLeaveBack: () =>
+        gsap.to("body", 1, {
+          backgroundColor: prevBg,
+          color: prevText,
+          overwrite: "auto"
+        })
+    });
+  });
 });
+
+
+
+
 
 
 
@@ -179,11 +198,11 @@ lineanim.fromTo("#numline2",2, {scaleX:0 }, {scaleX: 1}, '-=1.5');
 
 
 
+
+
 var poppy = gsap.timeline();
 
 poppy.to(".poppy-flower",2, {rotate: '40deg', marginLeft: '-3rem'});
-
-
 
   ScrollTrigger.create({
 
@@ -201,28 +220,13 @@ poppy.to(".poppy-flower",2, {rotate: '40deg', marginLeft: '-3rem'});
 
 
 
-// window.addEventListener("load", function() {
-//   const scrollColorElems = document.querySelectorAll("[data-scrollcolor]");
-//   scrollColorElems.forEach((colorSection, i) => {
-//     const prevColor = i === 0 ? "gray" : scrollColorElems[i - 1].dataset.scrollcolor;
-//     ScrollTrigger.create({
-//       trigger: colorSection,
-//       start: "left center",
-//       onEnter: () => gsap.to("body", {backgroundColor: colorSection.dataset.scrollcolor, overwrite: 'auto'}),
-//       onLeaveBack: () => gsap.to("body", {backgroundColor: prevColor, overwrite: 'auto'})
-//     });
-//   });
-// });
 
 
 
 
 
+let listItems = [...document.querySelectorAll('#li')];
 
-
-
-
-let listItems = [...document.querySelectorAll('li')];
 
 let options = {
     rootMargin: '0%',
@@ -260,3 +264,4 @@ listItems.forEach(item =>{
     observer.observe(item);
 
 })
+

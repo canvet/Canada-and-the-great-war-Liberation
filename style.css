@@ -15,6 +15,16 @@ body {
   background-color: white;
 }
 
+.wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  width: 5000vh;
+  overflow: hidden;
+}
+
 .navbar {
   width: 4rem;
   height: 100vh;
@@ -79,7 +89,6 @@ ul li {
 }
 
 ul li span {
-  display: block;
   line-height: 15vh;
   font-size: 15vh;
   text-transform: uppercase;
@@ -87,7 +96,6 @@ ul li span {
           transform: translateY(200%);
   margin: 0.05rem;
   font-family: brand;
-  color: #8B8931;
 }
 
 ul li span.active {
@@ -98,17 +106,7 @@ ul li span.active {
 }
 
 .gap {
-  width: 1rem;
-}
-
-.wrapper {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: nowrap;
-      flex-wrap: nowrap;
-  width: 2000vh;
-  overflow: hidden;
+  width: 5rem;
 }
 
 .int-s1 {
@@ -353,7 +351,7 @@ article {
 }
 
 .int-s7 {
-  width: 400vh;
+  width: 380vh;
   height: 100vh;
   display: -ms-grid;
   display: grid;
@@ -469,5 +467,71 @@ article {
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
+}
+
+.int-s11 {
+  width: 150vh;
+  height: 100vh;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 0.5fr;
+      grid-template-columns: 1fr 0.5fr;
+  padding: 5rem;
+}
+
+.s11-s1 {
+  display: -ms-grid;
+  display: grid;
+}
+
+.posterimg {
+  width: 70vh;
+  height: auto;
+}
+
+.int-s12 {
+  width: 100vh;
+  height: 100vh;
+  background: red;
+  padding: 5rem;
+}
+
+.int-s13 {
+  width: 80vh;
+  height: 100vh;
+  background: url(int-img8.jpg);
+  background-size: 130%;
+  background-repeat: no-repeat;
+  background-position: 0% 50%;
+}
+
+.int-s14 {
+  width: 60vh;
+  height: 100vh;
+  padding: 5rem;
+  display: -ms-grid;
+  display: grid;
+}
+
+.int-s15 {
+  width: 200vh;
+  height: 100vh;
+  padding: 5rem;
+  background: red;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: 1fr 0.5fr;
+      grid-template-rows: 1fr 0.5fr;
+}
+
+.s15-s1 {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 0.5fr;
+      grid-template-columns: 1fr 0.5fr;
+}
+
+.map {
+  width: 90vh;
 }
 /*# sourceMappingURL=style.css.map */
