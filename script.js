@@ -43,6 +43,11 @@ myHorizontalScrollbar.addListener(ScrollTrigger.update);
 
 
 
+
+
+
+
+
 var parallaximgdesk = gsap.timeline();
 parallaximgdesk.to('.int-s1',{backgroundPosition: "100% 10%"});
 
