@@ -78,6 +78,82 @@
       width: 40%;
   }
 
+  //  ----menu styling----//
+
+.menu{
+  width: 100%;
+  height: 200vh;
+  background: red;
+  position: absolute;
+  z-index: 888;
+  opacity: 1;
+  transform: translateX(-100%);
+  display: block;
+  padding: 10vh;
+
+  
+}
+
+.closebtnwrapper{
+width: 5rem;
+height: 5rem;
+position: fixed;
+z-index: 99999;
+right: 0;
+overflow: hidden;
+background: transparent;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+.closebtn{
+  width: 3rem;
+  height: 3rem;
+  background: green;
+  position: absolute;
+  z-index: 99998;
+  // right: 0;
+  transform: translateX(-200%);
+  // display: none;
+  // opacity: 0;
+}
+
+.openbtn{
+  width: 2rem;
+  height: 2rem;
+  background: black;
+}
+
+.mli{
+  // display: flex;
+  // align-items: center;
+  // flex-direction: column;
+  margin-bottom: 3vh;
+  background: green;
+  overflow: hidden;
+}
+
+.mh{
+  font-family: proxima-nova-extra-condensed,sans-serif;
+  font-style: normal;
+  text-transform: uppercase;
+}
+
+.mn{
+  font-family: brand;
+  font-size: 5vh;
+}
+
+.ms{
+  font-family: proxima-nova-extra-condensed,sans-serif;
+  font-style: normal;
+  text-transform: uppercase;
+}
+
+.mnc{
+  transform: translateY(120%);
+}
 
 
 
@@ -146,7 +222,7 @@ ul li span.active{
     background: #FCF9E8;
     width: 166vh;
     height: 100vh;
-    padding: 5rem;
+    padding: 10vh;
     display: grid;
     grid-template-columns: 1fr 0.5fr;
     
@@ -260,7 +336,7 @@ ul li span.active{
     height: 100vh;
    display: grid;
    grid-template-columns: 1fr 0.5fr;
-   padding: 5rem;
+   padding: 10vh;
   }
 
 
@@ -317,7 +393,7 @@ ul li span.active{
     background: black;
     display:grid;
     grid-template-rows: 1fr 1fr;
-    padding: 5rem;
+    padding: 10vh;
 
   }
 
@@ -330,10 +406,10 @@ ul li span.active{
   }
 
   .numline{
-      height: 0.5rem;
-      width: 10rem;
+      height: 1vh;
+      width: 15vh;
       background: #7C7C00;
-      margin-right: 2rem;
+      margin-right: 2vh;
       transform-origin: right;
   }
 
@@ -374,18 +450,18 @@ ul li span.active{
   
 
   .int-s7{
-    width: 380vh;
+    width: 360vh;
     height: 100vh; 
     display: grid;
    grid-template-columns: 1fr 0.5fr 1.2fr 0.5fr;
-   padding: 5rem;
+   padding: 10vh;
   //  background: lightcoral;
   }
 
   .s7-s1{
       display: grid;
       grid-template-rows: 1fr 0.5fr;
-      background: red;
+      // background: red;
   }
 
   .s7-s3{
@@ -399,7 +475,7 @@ ul li span.active{
   .img-container{
     width: 100vh;
     height: 100%;
-    padding: 5rem;
+    padding: 10vh;
     background: url(int-img3.jpg);
     background-size: 200%;
     background-repeat: no-repeat;
@@ -430,7 +506,7 @@ ul li span.active{
     background-position: 0% 50%;
     display: flex;
     align-items: flex-end;
-    padding: 5rem;
+    padding: 10vh;
 
   }
 
@@ -438,7 +514,7 @@ ul li span.active{
     width: 250vh;
     height: 100vh;
     // background: black;
-    padding:5rem;
+    padding:10vh;
     display: grid;
     grid-template-columns: 0.8fr 0.8fr 0.5fr;
   }
@@ -451,7 +527,7 @@ display: grid;
   .img-container2{
     width: 70vh;
     height: 100%;
-    padding: 5rem;
+    padding: 10vh;
     background: url(int-img5.jpg);
     background-size: cover;
     background-repeat: no-repeat;
@@ -471,7 +547,7 @@ display: grid;
     background-size: 110%;
     background-repeat: no-repeat;
     background-position: 0% 50%;
-    padding: 5rem;
+    padding: 10vh;
    display: flex;
    align-items: flex-start;
    justify-content: flex-end;
@@ -483,7 +559,7 @@ display: grid;
     height: 100vh;
     display: grid;
     grid-template-columns: 1fr 0.5fr;
-    padding: 5rem;
+    padding: 10vh;
   }
 
   .s11-s1{
@@ -501,7 +577,7 @@ display: grid;
     width: 100vh;
     height: 100vh;
     background: red;
-    padding:5rem;
+    padding:10vh;
 
   }
 
@@ -520,7 +596,7 @@ display: grid;
   .int-s14{
     width: 60vh;
     height: 100vh;
-    padding: 5rem;
+    padding: 10vh;
     display: grid;
   }
 
@@ -528,7 +604,7 @@ display: grid;
 
     width: 150vh;
     height: 100vh;
-    padding: 5rem;
+    padding: 10vh;
     background:red;
     display: grid;
     grid-template-rows: 1fr 0.5fr;
@@ -567,7 +643,7 @@ box-shadow: 5px 41px 43px -4px rgba(0,0,0,0.14);
 
  .maptext{
   font-size: 3.5vh;
-  padding:1rem;
+  padding:5vh;
   width: 40vh;
   color: grey;
   // text-align: justify;
@@ -580,6 +656,10 @@ font-style: normal;
    font-size: 11vh;
    font-family: brand;
  }
+
+
+
+
 
 
  

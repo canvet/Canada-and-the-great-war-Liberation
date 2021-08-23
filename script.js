@@ -1,3 +1,67 @@
+
+
+// Create a media condition that targets viewports at least 768px wide
+// const mediaQuery = window.matchMedia('(max-width: 768px)')
+// // Check if the media query is true
+// if (mediaQuery.matches) {
+//   // Then trigger an alert
+//   alert('Media Query Matched!')
+//   $('link[href="./style.css"]').remove();
+//   $('head').append('<link href="./mobstyle.css" rel="stylesheet" id="newcss" />');
+
+//   document.getElementById("scrollbar").style.display = "none";
+
+
+
+//   var demoanim = gsap.timeline();
+//   demoanim.to('h1',{y: -100});
+  
+//       ScrollTrigger.create({
+//       trigger: ".demo",
+//       start: "top top",
+//       animation: demoanim,
+//       markers: true
+//     });
+  
+
+// }
+
+
+
+var menutl = new TimelineLite({ paused:true });
+
+const drawer = document.getElementById("menu");
+const toggle = document.getElementById("openbtn");
+const closeDrawerBtn = document.getElementById("closebtn");
+
+
+// if the drawer is open or not
+let openDrawer = false;
+
+menutl
+    .to(drawer, 0.5, {display: 'block', x: 0,  ease: Expo.easeInOut })
+    .to(closeDrawerBtn, 0.5, {x: 0})
+    .to('.mnc', 0.5, {y:0}, '-=0.5')
+    .reverse();
+
+toggle.onclick = () => {
+    openDrawer = menutl.reversed();
+    menutl.reversed( !menutl.reversed() );
+    
+};
+
+ // --Reverse the menu items animations-//
+const reverseDrawerTween = () => {
+  menutl.reverse();
+    openDrawer = menutl.reversed();
+    
+};
+
+closeDrawerBtn.onclick = reverseDrawerTween;
+
+
+
+
 gsap.registerPlugin(ScrollTrigger);
 
 class HorizontalScrollPlugin extends Scrollbar.ScrollbarPlugin {
@@ -269,4 +333,10 @@ listItems.forEach(item =>{
     observer.observe(item);
 
 })
+
+
+
+
+
+
 

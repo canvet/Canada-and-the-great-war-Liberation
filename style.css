@@ -79,6 +79,82 @@ body {
   width: 40%;
 }
 
+.menu {
+  width: 100%;
+  height: 200vh;
+  background: red;
+  position: absolute;
+  z-index: 888;
+  opacity: 1;
+  -webkit-transform: translateX(-100%);
+          transform: translateX(-100%);
+  display: block;
+  padding: 10vh;
+}
+
+.closebtnwrapper {
+  width: 5rem;
+  height: 5rem;
+  position: fixed;
+  z-index: 99999;
+  right: 0;
+  overflow: hidden;
+  background: transparent;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.closebtn {
+  width: 3rem;
+  height: 3rem;
+  background: green;
+  position: absolute;
+  z-index: 99998;
+  -webkit-transform: translateX(-200%);
+          transform: translateX(-200%);
+}
+
+.openbtn {
+  width: 2rem;
+  height: 2rem;
+  background: black;
+}
+
+.mli {
+  margin-bottom: 3vh;
+  background: green;
+  overflow: hidden;
+}
+
+.mh {
+  font-family: proxima-nova-extra-condensed,sans-serif;
+  font-style: normal;
+  text-transform: uppercase;
+}
+
+.mn {
+  font-family: brand;
+  font-size: 5vh;
+}
+
+.ms {
+  font-family: proxima-nova-extra-condensed,sans-serif;
+  font-style: normal;
+  text-transform: uppercase;
+}
+
+.mnc {
+  -webkit-transform: translateY(120%);
+          transform: translateY(120%);
+}
+
 ul li {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -125,7 +201,7 @@ ul li span.active {
   background: #FCF9E8;
   width: 166vh;
   height: 100vh;
-  padding: 5rem;
+  padding: 10vh;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 1fr 0.5fr;
@@ -249,7 +325,7 @@ article {
   display: grid;
   -ms-grid-columns: 1fr 0.5fr;
       grid-template-columns: 1fr 0.5fr;
-  padding: 5rem;
+  padding: 10vh;
 }
 
 .s4-s1 {
@@ -304,14 +380,14 @@ article {
   display: grid;
   -ms-grid-rows: 1fr 1fr;
       grid-template-rows: 1fr 1fr;
-  padding: 5rem;
+  padding: 10vh;
 }
 
 .numline {
-  height: 0.5rem;
-  width: 10rem;
+  height: 1vh;
+  width: 15vh;
   background: #7C7C00;
-  margin-right: 2rem;
+  margin-right: 2vh;
   -webkit-transform-origin: right;
           transform-origin: right;
 }
@@ -353,13 +429,13 @@ article {
 }
 
 .int-s7 {
-  width: 380vh;
+  width: 360vh;
   height: 100vh;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 1fr 0.5fr 1.2fr 0.5fr;
       grid-template-columns: 1fr 0.5fr 1.2fr 0.5fr;
-  padding: 5rem;
+  padding: 10vh;
 }
 
 .s7-s1 {
@@ -367,7 +443,6 @@ article {
   display: grid;
   -ms-grid-rows: 1fr 0.5fr;
       grid-template-rows: 1fr 0.5fr;
-  background: red;
 }
 
 .s7-s3 {
@@ -385,7 +460,7 @@ article {
 .img-container {
   width: 100vh;
   height: 100%;
-  padding: 5rem;
+  padding: 10vh;
   background: url(int-img3.jpg);
   background-size: 200%;
   background-repeat: no-repeat;
@@ -420,13 +495,13 @@ article {
   -webkit-box-align: end;
       -ms-flex-align: end;
           align-items: flex-end;
-  padding: 5rem;
+  padding: 10vh;
 }
 
 .int-s9 {
   width: 250vh;
   height: 100vh;
-  padding: 5rem;
+  padding: 10vh;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 0.8fr 0.8fr 0.5fr;
@@ -441,7 +516,7 @@ article {
 .img-container2 {
   width: 70vh;
   height: 100%;
-  padding: 5rem;
+  padding: 10vh;
   background: url(int-img5.jpg);
   background-size: cover;
   background-repeat: no-repeat;
@@ -459,7 +534,7 @@ article {
   background-size: 110%;
   background-repeat: no-repeat;
   background-position: 0% 50%;
-  padding: 5rem;
+  padding: 10vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -478,7 +553,7 @@ article {
   display: grid;
   -ms-grid-columns: 1fr 0.5fr;
       grid-template-columns: 1fr 0.5fr;
-  padding: 5rem;
+  padding: 10vh;
 }
 
 .s11-s1 {
@@ -495,7 +570,7 @@ article {
   width: 100vh;
   height: 100vh;
   background: red;
-  padding: 5rem;
+  padding: 10vh;
 }
 
 .int-s13 {
@@ -510,7 +585,7 @@ article {
 .int-s14 {
   width: 60vh;
   height: 100vh;
-  padding: 5rem;
+  padding: 10vh;
   display: -ms-grid;
   display: grid;
 }
@@ -518,7 +593,7 @@ article {
 .int-s15 {
   width: 150vh;
   height: 100vh;
-  padding: 5rem;
+  padding: 10vh;
   background: red;
   display: -ms-grid;
   display: grid;
@@ -555,7 +630,7 @@ article {
 
 .maptext {
   font-size: 3.5vh;
-  padding: 1rem;
+  padding: 5vh;
   width: 40vh;
   color: grey;
   font-family: freight-big-pro, serif;
