@@ -17,6 +17,15 @@
     background-color: white;
   }
 
+  :root {
+    --padding: 10vh;
+    --parafont: freight-big-pro, serif;
+    --bigfont: brand;
+    --proxima: proxima-nova-extra-condensed,sans-serif;
+  }
+
+
+
   .wrapper{
     display: flex;
     flex-wrap: nowrap;
@@ -59,7 +68,7 @@
     transform: rotate(90deg);
     position: absolute;
     color: white;
-    font-family: proxima-nova-extra-condensed,sans-serif;
+    font-family: var(--proxima);
     font-style: normal;
     text-transform: uppercase;
     letter-spacing: 2px;;
@@ -135,7 +144,7 @@ align-items: center;
 }
 
 .mh{
-  font-family: proxima-nova-extra-condensed,sans-serif;
+  font-family: var(--proxima);
   font-style: normal;
   text-transform: uppercase;
 }
@@ -146,7 +155,7 @@ align-items: center;
 }
 
 .ms{
-  font-family: proxima-nova-extra-condensed,sans-serif;
+  font-family: var(--proxima);
   font-style: normal;
   text-transform: uppercase;
 }
@@ -169,7 +178,7 @@ align-items: center;
 
 }
 
-ul li{
+.list{
     // height: 4rem;
     display: flex;
     overflow: hidden;
@@ -178,7 +187,7 @@ ul li{
     justify-content: flex-start;
 }
 
-ul li span{
+.list span{
 // display: block;
 line-height: 15vh;
 font-size: 15vh;
@@ -191,7 +200,7 @@ font-family: brand;
 
 }
 
-ul li span.active{
+.list span.active{
     transform: translateY(0%);
     transition: 1s ease-out;
 }
@@ -209,10 +218,10 @@ ul li span.active{
 
   
   .int-s1{
-    background: red;
+    // background: red;
     width: 100vw;
     height: 100vh;
-    background: url(cover.jpg);
+    background-image: url(cover.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: 0% 10%;
@@ -222,7 +231,7 @@ ul li span.active{
     background: #FCF9E8;
     width: 166vh;
     height: 100vh;
-    padding: 10vh;
+    padding: var(--padding);
     display: grid;
     grid-template-columns: 1fr 0.5fr;
     
@@ -234,20 +243,10 @@ ul li span.active{
       grid-template-rows: 1fr 5fr 1fr;
   }
 
-  .s2-int-intro h1{
-      font-family: brand;
-    font-size: 16vh;
-    color: #8B8931;
-    line-height: 15vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    // height: 100%;
-    // background: orange;
-}
 
-.s2-int-intro h2{
-    font-family: proxima-nova-extra-condensed,sans-serif;
+
+.chapterheading{
+  font-family: var(--proxima);
     font-weight: 400;
     font-style: normal;
     text-transform: uppercase;
@@ -262,12 +261,7 @@ ul li span.active{
     justify-content: center;
 }
 
-  .s2-int-para{
-    //   background: red;
-    //   display: flex;
-    //   justify-content: center;
-    //   align-items: center;
-  }
+
 
   .round{
     width: 15vh;
@@ -295,7 +289,7 @@ ul li span.active{
 
 
   .para{
-      font-size: 2vh;
+      font-size: 2.1vh;
       max-width: 40vh;
       text-align: justify;
       font-family: freight-big-pro, serif;
@@ -312,7 +306,7 @@ ul li span.active{
     display: flex;
     justify-content: center;
     align-items: center;
-    background: url(int-img1.jpg);
+    background-image: url(int-img1.jpg);
     background-repeat: no-repeat;
     background-size: 120%;
     background-position: 0% 50%;
@@ -336,7 +330,7 @@ ul li span.active{
     height: 100vh;
    display: grid;
    grid-template-columns: 1fr 0.5fr;
-   padding: 10vh;
+   padding: var(--padding);
   }
 
 
@@ -347,11 +341,11 @@ ul li span.active{
   }
 
   .callout{
-    font-family: proxima-nova-extra-condensed,sans-serif;
-    font-weight: 800;
+    font-family: var(--proxima);
+    font-weight: 900;
     font-style: normal;
     text-transform: uppercase;
-    font-size: 10vh;
+    font-size: 8vh;
     max-width: 70vh;
   }
   
@@ -365,7 +359,7 @@ ul li span.active{
   }
 
   .photocredittext{
-    font-family: proxima-nova-extra-condensed,sans-serif;
+    font-family: var(--proxima);
     font-style: normal;
     font-size: 1.5vh;
     margin-bottom: 0;
@@ -393,7 +387,7 @@ ul li span.active{
     background: black;
     display:grid;
     grid-template-rows: 1fr 1fr;
-    padding: 10vh;
+    padding: var(--padding);
 
   }
 
@@ -427,7 +421,7 @@ ul li span.active{
   }
 
   .md-text{
-    font-family: proxima-nova-extra-condensed,sans-serif;
+    font-family: var(--proxima);
     font-style: normal;
     font-size: 4vh;
     text-transform: uppercase;
@@ -441,7 +435,7 @@ ul li span.active{
   .int-s6{
     width: 100vh;
     height: 100vh;
-    background: url(int-img2.jpg);
+    background-image: url(int-img2.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: 30% 50%;
@@ -454,7 +448,7 @@ ul li span.active{
     height: 100vh; 
     display: grid;
    grid-template-columns: 1fr 0.5fr 1.2fr 0.5fr;
-   padding: 10vh;
+   padding: var(--padding);
   //  background: lightcoral;
   }
 
@@ -475,8 +469,8 @@ ul li span.active{
   .img-container{
     width: 100vh;
     height: 100%;
-    padding: 10vh;
-    background: url(int-img3.jpg);
+    padding: var(--padding);
+    background-image: url(int-img3.jpg);
     background-size: 200%;
     background-repeat: no-repeat;
     background-position: 50% 50%;
@@ -493,20 +487,20 @@ ul li span.active{
 
   .s7-s2, .s7-s4{
     display: grid;
-    background: yellowgreen;
+    // background: yellowgreen;
   }
 
 
   .int-s8{
     width: 140vh;
     height: 100vh;
-    background: url('int-img4.jpg');
+    background-image: url('int-img4.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: 0% 50%;
     display: flex;
     align-items: flex-end;
-    padding: 10vh;
+    padding: var(--padding);
 
   }
 
@@ -514,7 +508,7 @@ ul li span.active{
     width: 250vh;
     height: 100vh;
     // background: black;
-    padding:10vh;
+    padding: var(--padding);
     display: grid;
     grid-template-columns: 0.8fr 0.8fr 0.5fr;
   }
@@ -527,8 +521,8 @@ display: grid;
   .img-container2{
     width: 70vh;
     height: 100%;
-    padding: 10vh;
-    background: url(int-img5.jpg);
+    padding: var(--padding);
+    background-image: url(int-img5.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: 0% 50%;
@@ -543,11 +537,11 @@ display: grid;
   .int-s10{
     width: 250vh;
     height: 100vh;
-    background: url(int-img6.jpg);
+    background-image: url(int-img6.jpg);
     background-size: 110%;
     background-repeat: no-repeat;
     background-position: 0% 50%;
-    padding: 10vh;
+    padding: var(--padding);
    display: flex;
    align-items: flex-start;
    justify-content: flex-end;
@@ -559,7 +553,7 @@ display: grid;
     height: 100vh;
     display: grid;
     grid-template-columns: 1fr 0.5fr;
-    padding: 10vh;
+    padding: var(--padding);
   }
 
   .s11-s1{
@@ -576,8 +570,8 @@ display: grid;
   .int-s12{
     width: 100vh;
     height: 100vh;
-    background: red;
-    padding:10vh;
+    // background: red;
+    padding: var(--padding);
 
   }
 
@@ -585,7 +579,7 @@ display: grid;
   .int-s13{
     width: 80vh;
     height: 100vh;
-    background: url(int-img8.jpg);
+    background-image: url(int-img8.jpg);
     background-size: 130%;
     background-repeat: no-repeat;
     background-position: 0% 50%;
@@ -596,7 +590,7 @@ display: grid;
   .int-s14{
     width: 60vh;
     height: 100vh;
-    padding: 10vh;
+    padding: var(--padding);
     display: grid;
   }
 
@@ -604,8 +598,8 @@ display: grid;
 
     width: 150vh;
     height: 100vh;
-    padding: 10vh;
-    background:red;
+    padding: var(--padding);
+    // background:red;
     display: grid;
     grid-template-rows: 1fr 0.5fr;
     
@@ -617,13 +611,13 @@ display: grid;
   .s15-s1{
     display: grid;
     grid-template-columns: 1fr 0.5fr;
-    background: yellow;
+    // background: yellow;
     justify-content: space-between;
   }
 
 
   .s15-s2{
-    background: blue;
+    // background: blue;
    
   }
 
@@ -647,7 +641,7 @@ box-shadow: 5px 41px 43px -4px rgba(0,0,0,0.14);
   width: 40vh;
   color: grey;
   // text-align: justify;
-  font-family: freight-big-pro, serif;
+  font-family: var(--parafont);
 font-weight: 500;
 font-style: normal;
  }
@@ -656,6 +650,47 @@ font-style: normal;
    font-size: 11vh;
    font-family: brand;
  }
+
+
+
+.overlay{
+  width: 100%;
+  height: 100vh;
+  background: black;
+  position: absolute;
+  z-index: 1000000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.overlaytext{
+  font-family: brand;
+  color: white;
+  font-size: 20vh;
+  
+}
+
+.overlaytextwrapper{
+  // background: red;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  opacity: 0;
+}
+
+.overlaysub{
+  font-family: var(--proxima);
+    font-style: normal;
+    text-transform: uppercase;
+    color: rgb(121, 1, 1);
+    // letter-spacing: 0vh;
+    text-align: center;
+    margin-top: -5vh;
+    
+}
+
 
 
 

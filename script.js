@@ -1,5 +1,44 @@
 
 
+// -----Wait for images to load completely then animate the overlay----//
+// $('#scrollbar').waitForImages({
+//   finished: function() {
+//     // alert('All images have loaded.');
+//     gsap.to(".overlay", 1, {y: '-100%', display: 'none'});
+//   },
+
+//   waitForAll: true
+// });
+
+
+
+
+// ----overlay text animation as loader----//
+// var overlaytl = gsap.timeline({repeat: -1});
+
+// overlaytl.to('#otw1',2, {delay:1, opacity: 1});
+// overlaytl.to('#os1',3, {letterSpacing: '0.5vh'}, '-=2');
+// overlaytl.to('#otw1',2, {delay:1, opacity: 0}, '-=2');
+
+
+
+
+// overlaytl.to('#otw2',2, {delay:1, opacity: 1});
+// overlaytl.to('#os2',3, {letterSpacing: '0.5vh'}, '-=2');
+// overlaytl.to('#otw2',2, {delay:1, opacity: 0}, '-=2');
+
+// overlaytl.to('#otw3',2, {delay:1, opacity: 1});
+// overlaytl.to('#os3',3, {letterSpacing: '0.5vh'}, '-=2');
+// overlaytl.to('#otw3',2, {delay:1, opacity: 0}, '-=2');
+
+// overlaytl.to('#otw4',2, {delay:1, opacity: 1});
+// overlaytl.to('#os4',3, {letterSpacing: '0.5vh'}, '-=2');
+// overlaytl.to('#otw4',2, {delay:1, opacity: 0}, '-=2');
+
+
+
+
+
 // Create a media condition that targets viewports at least 768px wide
 // const mediaQuery = window.matchMedia('(max-width: 768px)')
 // // Check if the media query is true
@@ -28,6 +67,11 @@
 
 
 
+
+
+
+
+// ----Menu reveal animation-----//
 var menutl = new TimelineLite({ paused:true });
 
 const drawer = document.getElementById("menu");
@@ -62,7 +106,13 @@ closeDrawerBtn.onclick = reverseDrawerTween;
 
 
 
+
+// ----Registering scrolltrigger----//
+
 gsap.registerPlugin(ScrollTrigger);
+
+
+// ------Transform vertical scroll to horizontal with smooth scroll plugin-----//
 
 class HorizontalScrollPlugin extends Scrollbar.ScrollbarPlugin {
   static pluginName = "horizontalScroll";
@@ -133,20 +183,9 @@ parallaximgdesk.to('.int-s1',{backgroundPosition: "100% 10%"});
 
 
 
-// gsap.to(".square", {
-//   rotate: "360deg",
-//   scrollTrigger: {
-//     trigger: "#sectionOne",
-//     // start: "left left",
-//     horizontal: true,
-//     scroller: scrollbar,
-//     scrub: true
-//     //markers: true
-//   }
-// });
+
 
 var chaptertitleanim = gsap.timeline();
-
 chaptertitleanim.staggerFromTo(".chaptertitle h1",2, {opacity: 0, y: 50}, {opacity: 1, y: 0}, 0.5);
 
 
@@ -211,7 +250,7 @@ imgparallaxzoomin.forEach((parallax, i) => {
 
 
 
-// Change body background color for varius sections   //
+// Change body background color for various sections   //
 window.addEventListener("load", function () {
   const scrollColorElems = document.querySelectorAll("[data-bgcolor]");
   scrollColorElems.forEach((colorSection, i) => {
@@ -255,7 +294,7 @@ lineanim.fromTo("#numline2",2, {scaleX:0 }, {scaleX: 1}, '-=1.5');
 
   ScrollTrigger.create({
 
-    trigger: "#sectionFive",
+    trigger: "#numline1",
     start: "left 80%",
     horizontal: true,
     scroller: scrollbar,
