@@ -79,17 +79,21 @@ const toggle = document.getElementById("openbtn");
 const closeDrawerBtn = document.getElementById("closebtn");
 
 
+
 // if the drawer is open or not
-let openDrawer = false;
+// let openDrawer = false;
 
 menutl
     .to(drawer, 0.5, {display: 'block', x: 0,  ease: Expo.easeInOut })
     .to(closeDrawerBtn, 0.5, {x: 0})
     .to('.mnc', 0.5, {y:0}, '-=0.5')
+   .to('#scrollbar', {position: 'fixed'})
     .reverse();
 
+   
+;
 toggle.onclick = () => {
-    openDrawer = menutl.reversed();
+    // openDrawer = menutl.reversed();
     menutl.reversed( !menutl.reversed() );
     
 };
@@ -97,7 +101,7 @@ toggle.onclick = () => {
  // --Reverse the menu items animations-//
 const reverseDrawerTween = () => {
   menutl.reverse();
-    openDrawer = menutl.reversed();
+    // openDrawer = menutl.reversed();
     
 };
 
@@ -166,7 +170,7 @@ var parallaximgdesk = gsap.timeline();
 parallaximgdesk.to('.int-s1',{backgroundPosition: "100% 10%"});
 
     ScrollTrigger.create({
-    trigger: "#sectionOne",
+    trigger: "#s1",
     start: "left left",
     horizontal: true,
     scroller: scrollbar,
@@ -191,7 +195,7 @@ chaptertitleanim.staggerFromTo(".chaptertitle h1",2, {opacity: 0, y: 50}, {opaci
 
   ScrollTrigger.create({
 
-    trigger: "#sectionTwo",
+    trigger: "#s2",
     start: "left 80%",
     horizontal: true,
     scroller: scrollbar,
@@ -250,12 +254,16 @@ imgparallaxzoomin.forEach((parallax, i) => {
 
 
 
+
+
+
 // Change body background color for various sections   //
 window.addEventListener("load", function () {
   const scrollColorElems = document.querySelectorAll("[data-bgcolor]");
   scrollColorElems.forEach((colorSection, i) => {
     const prevBg = i === 0 ? "" : scrollColorElems[i - 1].dataset.bgcolor;
     const prevText = i === 0 ? "" : scrollColorElems[i - 1].dataset.textcolor;
+    
 
     ScrollTrigger.create({
       trigger: colorSection,
@@ -268,6 +276,8 @@ window.addEventListener("load", function () {
           color: colorSection.dataset.textcolor,
           overwrite: "auto"
         }),
+        
+
       onLeaveBack: () =>
         gsap.to("body", 1, {
           backgroundColor: prevBg,
@@ -333,6 +343,8 @@ poppy.to(".poppy-flower",2, {rotate: '40deg', marginLeft: '-3rem'});
 
 
 
+
+
 let listItems = [...document.querySelectorAll('#li')];
 
 
@@ -356,6 +368,7 @@ function showItem(entries){
         }
     })
 }
+
 
 
 listItems.forEach(item =>{
