@@ -81,7 +81,7 @@ const closeDrawerBtn = document.getElementById("closebtn");
 
 
 // if the drawer is open or not
-// let openDrawer = false;
+let openDrawer = false;
 
 menutl
     .to(drawer, 0.5, {display: 'block', x: 0,  ease: Expo.easeInOut })
@@ -93,7 +93,7 @@ menutl
    
 ;
 toggle.onclick = () => {
-    // openDrawer = menutl.reversed();
+    openDrawer = menutl.reversed();
     menutl.reversed( !menutl.reversed() );
     
 };
@@ -101,7 +101,7 @@ toggle.onclick = () => {
  // --Reverse the menu items animations-//
 const reverseDrawerTween = () => {
   menutl.reverse();
-    // openDrawer = menutl.reversed();
+    openDrawer = menutl.reversed();
     
 };
 
@@ -189,22 +189,6 @@ parallaximgdesk.to('.int-s1',{backgroundPosition: "100% 10%"});
 
 
 
-var chaptertitleanim = gsap.timeline();
-chaptertitleanim.staggerFromTo(".chaptertitle h1",2, {opacity: 0, y: 50}, {opacity: 1, y: 0}, 0.5);
-
-
-  ScrollTrigger.create({
-
-    trigger: "#s2",
-    start: "left 80%",
-    horizontal: true,
-    scroller: scrollbar,
-    animation: chaptertitleanim,
-    // scrub: true,
-    markers: true
-  
-});
-
 
 
 // gsap.to(".int-s3", { backgroundPosition: "100% 50%",
@@ -239,7 +223,7 @@ imgparallaxleft.forEach((parallax, i) => {
 const imgparallaxzoomin = gsap.utils.toArray('#int-imgzin');
 
 imgparallaxzoomin.forEach((parallax, i) => {
-  const anim2 = gsap.to(parallax, {backgroundSize: "110%"});
+  const anim2 = gsap.to(parallax, {backgroundSize: "100%"});
   ScrollTrigger.create({
     trigger: parallax,
     start: "left right",
@@ -250,6 +234,24 @@ imgparallaxzoomin.forEach((parallax, i) => {
   });
 });
 
+
+
+
+// -------rotating picture------//
+
+const imgrotate = gsap.utils.toArray('#picture');
+
+imgrotate.forEach((parallax, i) => {
+  const anim3 = gsap.to(parallax, {rotate: '-10deg'});
+  ScrollTrigger.create({
+    trigger: parallax,
+    start: "left right",
+    animation: anim3,
+    horizontal: true,
+    scroller: scrollbar,
+    scrub: true
+  });
+});
 
 
 
@@ -293,26 +295,31 @@ window.addEventListener("load", function () {
 
 
 
+// ----stat line animation ------//
 
+const reveal = gsap.utils.toArray('.numline');
 
-
-var lineanim = gsap.timeline();
-
-lineanim.fromTo("#numline1",2, {scaleX:0 }, {scaleX: 1});
-lineanim.fromTo("#numline2",2, {scaleX:0 }, {scaleX: 1}, '-=1.5');
-
-
+reveal.forEach((numline, i) => {
+  const lineanim = gsap.fromTo(numline,2,  {scaleX:0}, {scaleX: 1});
   ScrollTrigger.create({
-
-    trigger: "#numline1",
+    trigger: numline,
     start: "left 80%",
+    animation: lineanim,
     horizontal: true,
     scroller: scrollbar,
-    animation: lineanim,
-    // scrub: true,
     markers: true
   
+    
+  });
 });
+
+
+
+
+
+
+
+
 
 
 
@@ -391,4 +398,54 @@ listItems.forEach(item =>{
 
 
 
+
+
+
+// ---change mouse cursor on hover of elements---//
+
+// var cursor = $(".cursor"),
+// follower = $(".cursor-follower");
+
+// var posX = 0,
+// posY = 0,
+// mouseX = 0,
+// mouseY = 0;
+
+// TweenMax.to({}, 0.016, {
+// repeat: -1,
+// onRepeat: function() {
+//     posX += (mouseX - posX) / 9;
+//     posY += (mouseY - posY) / 9;
+
+//     TweenMax.set(follower, {
+//         css: {
+//             left: posX - 20,
+//             top: posY - 20
+//         }
+//     });
+
+//     TweenMax.set(cursor, {
+//         css: {
+//             left: mouseX,
+//             top: mouseY
+            
+//         }
+//     });
+// }
+// });
+
+// $(document).on("mousemove", function(e) {
+// mouseX = e.pageX;
+// mouseY = e.pageY;
+// });
+
+// $("img").on("mouseenter", function() {
+// cursor.addClass("active");
+// follower.addClass("active");
+// });
+
+// $("img").on("mouseleave", function() {
+// cursor.removeClass("active");
+// follower.removeClass("active");
+// });
 
