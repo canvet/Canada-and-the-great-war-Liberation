@@ -116,6 +116,10 @@ closeDrawerBtn.onclick = reverseDrawerTween;
 gsap.registerPlugin(ScrollTrigger);
 
 
+
+
+
+
 // ------Transform vertical scroll to horizontal with smooth scroll plugin-----//
 
 class HorizontalScrollPlugin extends Scrollbar.ScrollbarPlugin {
@@ -159,8 +163,17 @@ ScrollTrigger.scrollerProxy(scrollbar, {
 myHorizontalScrollbar.addListener(ScrollTrigger.update);
 
 
+// function transformScroll(event) {
+//   if (!event.deltaY) {
+//     return;
+//   }
 
+//   event.currentTarget.scrollLeft += event.deltaY + event.deltaX;
+//   event.preventDefault();
+// }
 
+// var element = document.scrollingElement || document.documentElement;
+// element.addEventListener('wheel', transformScroll);
 
 
 
@@ -448,4 +461,103 @@ listItems.forEach(item =>{
 // cursor.removeClass("active");
 // follower.removeClass("active");
 // });
+
+
+
+
+
+
+
+
+let menu = document.querySelector('.menu');
+let items = document.querySelectorAll('.menu-item');
+let clones = [];
+let disableScroll = false;
+let scrollHeight = 0;
+let scrollpos = 0;
+let clonesHeight = 0;
+
+
+function getScrollPos(){
+    return menu. scrollTop; //Amount window scrolled
+}
+
+function setScrollPos(pos){
+    menu.scrollTop = pos;
+}
+
+function getCLonesHeight(){
+  cloneHeight = 0;
+
+  clones.forEach(clone => {
+    cloneHeight += clone.offsetHeight; //offsetHeight returns height of element
+
+  })
+
+  return cloneHeight;
+}
+
+
+//Recalculate dimensions when screen is resized
+
+function reCalc(){
+    scrollpos = getScrollPos();
+    scrollHeight = menu.scrollHeight; //Height of an elements content, including content not visible on the screen
+    clonesHeight = getClonesHeight();
+
+    if(scrollpos <= 0){
+        setScrollPos(1); //Initial set at 1px to enable upwards scrolling
+    }
+
+  }
+
+
+  function scrollUpdate(){
+    if(!disableScroll){
+        scrollpos = getScrollPos();
+        if(cloneHeight + scrollpos >= scrollheight){
+          //scroll back to top when we reach bottom
+          setScrollPos(1);
+          disableScroll = true;
+        } else if (scrollpos <= 0){
+          //scroll to bottom when we reach the top
+          setScrollPos(scrollheight = clonesHeight);
+          disableScroll = true;
+        }
+    }
+
+    if(disableScroll){
+      //Disable scroll-jumping for a short period to avoid flickering
+
+      window.setTimeout(() =>{
+          disableScroll = false;
+      }, 40);
+    }
+  }
+
+
+  function onLoad(){
+      items.forEach(item => {
+          const clone = item.cloneNode(true);
+          menu.appendChild(clone);
+          clone.classList.add('js-clone');
+      });
+
+      clones = menu.querySelector('.js-clone');
+
+      reCalc();
+
+      menu.addEventListener('scroll', () =>{
+          window.requestAnimationFrame(scrollUpdate);
+      }, false);
+
+
+      window.addEventListener('resize', () => {
+        window.requestAnimationFrame(reCalc);
+      }, false)
+  }
+
+window.onload = onLoad();
+
+
 

@@ -33,9 +33,6 @@ img {
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
   width: 5000vh;
-  overflow: hidden;
-  overflow-x: scroll;
-  overflow-y: hidden;
   position: relative;
 }
 
