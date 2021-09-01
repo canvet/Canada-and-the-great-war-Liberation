@@ -37,7 +37,7 @@
   .wrapper{
     display: flex;
     flex-wrap: nowrap;
-    width: 5000vh;
+    width: 10000vh;
     // overflow:hidden;
     // overflow-x: scroll;
     // overflow-y: hidden;
@@ -177,7 +177,9 @@ align-items: center;
 
 
 
-
+.centerstat{
+  margin: 0;
+}
 
 
 
@@ -186,7 +188,7 @@ align-items: center;
     display: flex;
     overflow: hidden;
     // background-color: black;
-    margin-bottom: 0.5rem;
+    // margin-bottom: 0.5rem;
     justify-content: flex-start;
 }
 
@@ -247,6 +249,9 @@ margin: 0.05rem;
     // background: red;
     width: 100vw;
     height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     background-image: url(cover.jpg);
     background-repeat: no-repeat;
     background-size: 120%;
@@ -263,9 +268,44 @@ margin: 0.05rem;
     margin-top: 3vh;
 }
 
-.logocontainer img{
+.logo{
     width: 40%;
 }
+
+.arrowcontainer{
+  // background: yellow;
+  Width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  padding: 10vh;
+  
+}
+
+
+.arrowbtn{
+  background: red;
+  width: 20vh;
+  height: 20vh;
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 7vh;
+}
+
+.arrow{
+  transition: 0.5s;
+  width: 8vh;
+}
+
+.arrowbtn:hover .arrow{
+  margin-left: 4vh;
+
+}
+
+
+
+
 
 .chapter{
   width: 80vh;
@@ -365,7 +405,7 @@ margin: 0.05rem;
   }
 
   article{
-    font-size: 15vh;
+    font-size: 12vh;
     font-family: brand;
     padding-top: 1.5rem;
     color: white;
@@ -374,7 +414,7 @@ margin: 0.05rem;
 
   .para{
       font-size: 2vh;
-      max-width: 40vh;
+      max-width: 50vh;
       text-align: justify;
       font-family: freight-big-pro, serif;
     font-weight: 500;
@@ -396,6 +436,12 @@ margin: 0.05rem;
     background-position: 0% 50%;
   }
 
+
+  .n1{
+    background-image: url(int-img2.jpg);
+    background-size: 140%;
+  }
+
   .n2{
     background-image: url(part1-img5.jpg);
   }
@@ -403,6 +449,22 @@ margin: 0.05rem;
   .n3{
     background-image: url(part1-img8.jpg);
   }
+
+  
+
+
+
+  .supernarrow{
+    width: 70vh;
+    height: 100vh;
+    background-image: url(part1-img15.jpg);
+    background-repeat: no-repeat;
+    background-size: 120%;
+    background-position: 50% 50%;
+  }
+
+
+
 
   .int-s3 img{
     width: 100%;
@@ -461,11 +523,15 @@ margin: 0.05rem;
   .photocredittext{
     font-family: var(--proxima);
     font-style: normal;
-    font-size: 1.5vh;
+    font-size: 1.6vh;
     margin-bottom: 0;
     max-width: 50vh;
    
     
+  }
+
+  .creditgrey{
+    color: #9F9F9F;
   }
 
   .s4-s2{
@@ -526,62 +592,7 @@ margin: 0.05rem;
 
 
 
-  .s2{
-    // width: 100vh;
-    // height: 100vh;
-    background-image: url(int-img2.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: 50% 50%;
-  }
-
-  
-
-  .int-s7{
-    width: auto;
-    height: 100vh; 
-    display: grid;
-   grid-template-columns: 1fr 0.5fr 1.2fr 0.5fr;
-   padding: var(--padding);
-  //  background: lightcoral;
-  }
-
-  .s7-s1{
-      display: grid;
-      grid-template-rows: 1fr 0.5fr;
-      background: red;
-  }
-
-  .s7-s3{
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      // background: yellow;
-     
-  }
-
-  .img-container{
-    width: 100vh;
-    height: 100%;
-    padding: var(--padding);
-    background-image: url(int-img3.jpg);
-    background-size: 200%;
-    background-repeat: no-repeat;
-    background-position: 50% 50%;
-  }
-
-  .poppy-flower{
-      width: 30vh;
-      object-fit: contain;
-      margin-left: -12rem;
-      z-index: -1;
-     
-  }
-
-  .s7-s2, .s7-s4{
-    display: grid;
-    // background: yellowgreen;
-  }
+ 
 
 
   .wide{
@@ -621,30 +632,21 @@ margin: 0.05rem;
   }
 
 
-
-  .int-s9{
-    width: 250vh;
-    height: 100vh;
-    // background: black;
-    padding: var(--padding);
-    display: grid;
-    grid-template-columns: 0.8fr 0.8fr 0.5fr;
+  .w7{
+    background-image: url('part1-img13.jpg');
+    background-position: 100% 50%;
+    background-size: 110%;
   }
 
-  .s9-s2{
-// background: yellow;
-display: grid;
+
+  .w8{
+    background-image: url('part1-img18.jpg');
   }
 
-  .img-container2{
-    width: 70vh;
-    height: 100%;
-    padding: var(--padding);
-    background-image: url(int-img5.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: 0% 50%;
-  }
+
+
+
+  
 
 
   .white{
@@ -674,18 +676,9 @@ display: grid;
 
 
 
-  .int-s11{
-    width: 150vh;
-    height: 100vh;
-    display: grid;
-    grid-template-columns: 1fr 0.5fr;
-    padding: var(--padding);
-  }
+ 
 
-  .s11-s1{
-    // background: red;
-    display: grid;
-  }
+  
 
   .posterimg{
     width: 70vh;
@@ -693,14 +686,7 @@ display: grid;
   }
 
 
-  .int-s12{
-    width: 100vh;
-    height: 100vh;
-    // background: red;
-    padding: var(--padding);
-
-  }
-
+ 
 
   .int-s13{
     width: 80vh;
@@ -713,14 +699,9 @@ display: grid;
   }
 
 
-  .int-s14{
-    width: 60vh;
-    height: 100vh;
-    padding: var(--padding);
-    display: grid;
-  }
+ 
 
-  .int-s15{
+  .mapsection{
 
     width: 150vh;
     height: 100vh;
@@ -734,7 +715,7 @@ display: grid;
   }
 
 
-  .s15-s1{
+  .mapwrapper-1{
     display: grid;
     grid-template-columns: 1fr 0.5fr;
     // background: yellow;
@@ -742,7 +723,7 @@ display: grid;
   }
 
 
-  .s15-s2{
+  .mapwrapper-2{
     // background: blue;
    
   }
@@ -838,6 +819,32 @@ font-style: normal;
 }
 
 
+.bigpicturesection{
+  
+  height: 100vh;
+  padding: var(--padding);
+  display: grid;
+  // background: red;
+}
+
+
+.bigpicture{
+  width: 70vh;
+}
+
+.GeorgeOrmsby{
+  width: 60vh;
+  margin-left: -30vh;
+}
+
+
+
+
+.bigpicture2{
+  width: 50vh;
+  box-shadow: 5px 41px 43px -4px rgba(0,0,0,0.14);
+}
+
 .picture{
   width: 40vh;
   // transform: rotate(20deg);
@@ -852,6 +859,16 @@ font-style: normal;
   box-shadow: 5px 41px 43px -4px rgba(0,0,0,0.14);
   margin-right: -30vh;
 }
+
+
+.poppyflower{
+  width: 40vh;
+  margin-left: -70vh;
+  z-index: -1;
+
+}
+
+
 
 
 .wideinternal{
@@ -869,6 +886,20 @@ font-style: normal;
     background-repeat: no-repeat;
     background-position: 50% 50%;
 }
+
+.wi2{
+  background-image: url(int-img3.jpg);
+}
+
+.wi3{
+  background-image: url(int-img5.jpg);
+}
+
+.wi4{
+  background-image: url(part1-img14.jpg);
+}
+
+
 
 
 .statcontainer{

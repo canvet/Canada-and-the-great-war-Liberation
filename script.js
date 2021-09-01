@@ -232,6 +232,21 @@ imgparallaxleft.forEach((parallax, i) => {
 });
 
 
+const imgparallaxright = gsap.utils.toArray('#int-right');
+
+imgparallaxright.forEach((parallax, i) => {
+  const anim = gsap.to(parallax, {backgroundPosition: "0% 50%"});
+  ScrollTrigger.create({
+    trigger: parallax,
+    start: "left right",
+    animation: anim,
+    horizontal: true,
+    scroller: scrollbar,
+    scrub: true
+  });
+});
+
+
 
 const imgparallaxzoomin = gsap.utils.toArray('#int-imgzin');
 
@@ -283,14 +298,10 @@ window.addEventListener("load", function () {
     ScrollTrigger.create({
       trigger: colorSection,
       scroller: scrollbar,
-      start: "left 80%",
+      start: "left 90%",
       horizontal: true,
       onEnter: () =>
-        gsap.to("body", 1, {
-          backgroundColor: colorSection.dataset.bgcolor,
-          color: colorSection.dataset.textcolor,
-          overwrite: "auto"
-        }),
+        gsap.to("body", 1, {backgroundColor: colorSection.dataset.bgcolor, color: colorSection.dataset.textcolor, overwrite: "auto"}),
         
 
       onLeaveBack: () =>
@@ -340,12 +351,12 @@ reveal.forEach((numline, i) => {
 
 var poppy = gsap.timeline();
 
-poppy.to(".poppy-flower",2, {rotate: '40deg', marginLeft: '-3rem'});
+poppy.to(".poppyflower",2, {rotate: '40deg', marginLeft: '-50vh'});
 
   ScrollTrigger.create({
 
-    trigger: ".img-container",
-    start: "left 80%",
+    trigger: ".poppy-flower",
+    start: "left right",
     horizontal: true,
     scroller: scrollbar,
     animation: poppy,
