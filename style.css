@@ -441,10 +441,14 @@ article {
 }
 
 .n2 {
-  background-image: url(part1-img5.jpg);
+  background-image: url(int-img8.jpg);
 }
 
 .n3 {
+  background-image: url(part1-img5.jpg);
+}
+
+.n4 {
   background-image: url(part1-img8.jpg);
 }
 
@@ -485,7 +489,7 @@ article {
 
 .calloutsection {
   padding: var(--padding);
-  width: 80vh;
+  width: 100vh;
   height: 100vh;
   display: -ms-grid;
   display: grid;
@@ -496,7 +500,7 @@ article {
   font-weight: bold;
   font-style: normal;
   text-transform: uppercase;
-  font-size: 9vh;
+  font-size: 10vh;
   max-width: 70vh;
 }
 
@@ -512,6 +516,12 @@ article {
       -ms-flex-pack: end;
           justify-content: flex-end;
   max-width: 40vh;
+}
+
+.pcinbound {
+  background: rgba(255, 255, 255, 0.788);
+  border-radius: 1vh;
+  padding: 1vh;
 }
 
 .photocredittext {
@@ -613,16 +623,37 @@ article {
 
 .w6 {
   background-image: url("part1-img11.jpg");
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
 }
 
 .w7 {
   background-image: url("part1-img13.jpg");
   background-position: 100% 50%;
   background-size: 110%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
 }
 
 .w8 {
   background-image: url("part1-img18.jpg");
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
 }
 
 .white {

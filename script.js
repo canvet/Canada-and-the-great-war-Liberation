@@ -1,5 +1,6 @@
 
 
+
 // -----Wait for images to load completely then animate the overlay----//
 // $('#scrollbar').waitForImages({
 //   finished: function() {
@@ -84,7 +85,7 @@ const closeDrawerBtn = document.getElementById("closebtn");
 let openDrawer = false;
 
 menutl
-    .to(drawer, 0.5, {display: 'block', x: 0,  ease: Expo.easeInOut })
+    .to(drawer, 1, {display: 'block', x: 0,  ease: Expo.easeInOut })
     .to(closeDrawerBtn, 0.5, {x: 0})
     .to('.mnc', 0.5, {y:0}, '-=0.5')
    .to('#scrollbar', {position: 'fixed'})
