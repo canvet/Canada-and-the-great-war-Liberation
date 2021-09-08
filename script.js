@@ -303,6 +303,8 @@ window.addEventListener("load", function () {
       horizontal: true,
       onEnter: () =>
         gsap.to("body", 1, {backgroundColor: colorSection.dataset.bgcolor, color: colorSection.dataset.textcolor, overwrite: "auto"}),
+
+        
         
 
       onLeaveBack: () =>

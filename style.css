@@ -305,6 +305,10 @@ img {
           align-items: center;
 }
 
+.chapter2 {
+  background: #CBAD2A;
+}
+
 .chapterheadwrapper {
   width: 100%;
 }
@@ -338,7 +342,7 @@ img {
           align-items: center;
 }
 
-.c2 {
+.c1 {
   background: #ffffff;
 }
 
@@ -349,7 +353,7 @@ img {
       grid-template-rows: 1fr 5fr 1fr;
 }
 
-.ctc2 {
+.ctc1 {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -452,6 +456,10 @@ article {
   background-image: url(part1-img8.jpg);
 }
 
+.p2n1 {
+  background-image: url(part2-img5.jpg);
+}
+
 .supernarrow {
   width: 70vh;
   height: 100vh;
@@ -519,7 +527,7 @@ article {
 }
 
 .pcinbound {
-  background: rgba(255, 255, 255, 0.788);
+  background: rgba(255, 255, 255, 0.897);
   border-radius: 1vh;
   padding: 1vh;
 }
@@ -654,6 +662,64 @@ article {
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
+}
+
+.w9 {
+  background-image: url("part2-img1.jpg");
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+.w10 {
+  background-image: url("part2-img4.jpg");
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.w11 {
+  background-image: url("part2-img6.jpg");
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+.mdwide {
+  width: 140vh;
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-size: 120%;
+  background-position: 0% 50%;
+  padding: var(--padding);
+}
+
+.mdw1 {
+  background-image: url("part2-img3.jpg");
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
 }
 
 .white {
@@ -821,6 +887,10 @@ article {
   display: grid;
 }
 
+.ps1 {
+  width: 60vh;
+}
+
 .bigpicture {
   width: 70vh;
 }
@@ -850,6 +920,12 @@ article {
   -webkit-box-shadow: 5px 41px 43px -4px rgba(0, 0, 0, 0.14);
           box-shadow: 5px 41px 43px -4px rgba(0, 0, 0, 0.14);
   margin-right: -30vh;
+}
+
+.picture3 {
+  width: 90vh;
+  margin-left: 30vh;
+  z-index: 1;
 }
 
 .poppyflower {
