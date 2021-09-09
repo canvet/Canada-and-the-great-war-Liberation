@@ -1144,6 +1144,36 @@ article {
           align-items: flex-start;
 }
 
+.p4mdw9 {
+  background-image: url("part4-img15.jpg");
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+}
+
+.p4mdw10 {
+  background-image: url("part4-img17.jpg");
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+}
+
+.p4mdw11 {
+  background-image: url("part4-img19.jpg");
+}
+
 .white {
   color: white;
 }
@@ -1438,6 +1468,10 @@ article {
 
 .wi11 {
   background-image: url(part4-img14.jpg);
+}
+
+.wi12 {
+  background-image: url(part4-img16.jpg);
 }
 
 .statcontainer {
