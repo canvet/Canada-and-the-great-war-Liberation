@@ -831,6 +831,21 @@ article {
           align-items: flex-end;
 }
 
+.w17 {
+  background-image: url("con-img10.jpg"), -webkit-gradient(linear, left top, left bottom, from(#000000b4), to(#000000a9));
+  background-image: url("con-img10.jpg"), linear-gradient(#000000b4, #000000a9);
+  background-blend-mode: overlay;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
 .mdwide {
   width: 140vh;
   height: 100vh;
