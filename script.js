@@ -2,39 +2,39 @@
 
 
 // -----Wait for images to load completely then animate the overlay----//
-// $('#scrollbar').waitForImages({
-//   finished: function() {
-//     // alert('All images have loaded.');
-//     gsap.to(".overlay", 1, {y: '-100%', display: 'none'});
-//   },
+$('#scrollbar').waitForImages({
+  finished: function() {
+    // alert('All images have loaded.');
+    gsap.to(".overlay", 1, {y: '-100%', display: 'none'});
+  },
 
-//   waitForAll: true
-// });
+  waitForAll: true
+});
 
 
 
 
 // ----overlay text animation as loader----//
-// var overlaytl = gsap.timeline({repeat: -1});
+var overlaytl = gsap.timeline({repeat: -1});
 
-// overlaytl.to('#otw1',2, {delay:1, opacity: 1});
-// overlaytl.to('#os1',3, {letterSpacing: '0.5vh'}, '-=2');
-// overlaytl.to('#otw1',2, {delay:1, opacity: 0}, '-=2');
-
-
+overlaytl.to('#otw1',2, {delay:1, opacity: 1});
+overlaytl.to('#os1',3, {letterSpacing: '0.5vh'}, '-=2');
+overlaytl.to('#otw1',2, {delay:1, opacity: 0}, '-=2');
 
 
-// overlaytl.to('#otw2',2, {delay:1, opacity: 1});
-// overlaytl.to('#os2',3, {letterSpacing: '0.5vh'}, '-=2');
-// overlaytl.to('#otw2',2, {delay:1, opacity: 0}, '-=2');
 
-// overlaytl.to('#otw3',2, {delay:1, opacity: 1});
-// overlaytl.to('#os3',3, {letterSpacing: '0.5vh'}, '-=2');
-// overlaytl.to('#otw3',2, {delay:1, opacity: 0}, '-=2');
 
-// overlaytl.to('#otw4',2, {delay:1, opacity: 1});
-// overlaytl.to('#os4',3, {letterSpacing: '0.5vh'}, '-=2');
-// overlaytl.to('#otw4',2, {delay:1, opacity: 0}, '-=2');
+overlaytl.to('#otw2',2, {delay:1, opacity: 1});
+overlaytl.to('#os2',3, {letterSpacing: '0.5vh'}, '-=2');
+overlaytl.to('#otw2',2, {delay:1, opacity: 0}, '-=2');
+
+overlaytl.to('#otw3',2, {delay:1, opacity: 1});
+overlaytl.to('#os3',3, {letterSpacing: '0.5vh'}, '-=2');
+overlaytl.to('#otw3',2, {delay:1, opacity: 0}, '-=2');
+
+overlaytl.to('#otw4',2, {delay:1, opacity: 1});
+overlaytl.to('#os4',3, {letterSpacing: '0.5vh'}, '-=2');
+overlaytl.to('#otw4',2, {delay:1, opacity: 0}, '-=2');
 
 
 
@@ -164,6 +164,28 @@ ScrollTrigger.scrollerProxy(scrollbar, {
 myHorizontalScrollbar.addListener(ScrollTrigger.update);
 
 
+
+// ----scroll to a section on click, uses the smooth scrollbar plugin---//
+
+document.getElementById('arrowbtn').onclick = function() {scrollto()};
+
+function scrollto(){
+
+  myHorizontalScrollbar.scrollTo(1300, 0, 1500);
+  
+  // myHorizontalScrollbar.scrollIntoView(document.querySelector('#chapter1'), {
+  //   alignToTop: boolean = true,
+  //   offsetLeft: number = 0,
+   
+  // });
+}
+
+
+
+
+
+
+
 // function transformScroll(event) {
 //   if (!event.deltaY) {
 //     return;
@@ -199,22 +221,6 @@ parallaximgdesk.to('.int-s1',{backgroundPosition: "100% 10%"});
 
 
 
-
-
-
-
-
-
-// gsap.to(".int-s3", { backgroundPosition: "100% 50%",
-//   scrollTrigger: {
-//     trigger: "#sectionThree",
-//     start: "left right",
-//     horizontal: true,
-//     scroller: scrollbar,
-//     scrub: true,
-//     markers: true
-//   }
-// });
 
 
 
@@ -483,95 +489,119 @@ listItems.forEach(item =>{
 
 
 
-let menu = document.querySelector('.menu');
-let items = document.querySelectorAll('.menu-item');
-let clones = [];
-let disableScroll = false;
-let scrollHeight = 0;
-let scrollpos = 0;
-let clonesHeight = 0;
+// let menu = document.querySelector('.menu');
+// let items = document.querySelectorAll('.menu-item');
+// let clones = [];
+// let disableScroll = false;
+// let scrollHeight = 0;
+// let scrollpos = 0;
+// let clonesHeight = 0;
 
 
-function getScrollPos(){
-    return menu. scrollTop; //Amount window scrolled
-}
+// function getScrollPos(){
+//     return menu. scrollTop; //Amount window scrolled
+// }
 
-function setScrollPos(pos){
-    menu.scrollTop = pos;
-}
+// function setScrollPos(pos){
+//     menu.scrollTop = pos;
+// }
 
-function getCLonesHeight(){
-  cloneHeight = 0;
+// function getCLonesHeight(){
+//   cloneHeight = 0;
 
-  clones.forEach(clone => {
-    cloneHeight += clone.offsetHeight; //offsetHeight returns height of element
+//   clones.forEach(clone => {
+//     cloneHeight += clone.offsetHeight; //offsetHeight returns height of element
 
-  })
+//   })
 
-  return cloneHeight;
-}
-
-
-//Recalculate dimensions when screen is resized
-
-function reCalc(){
-    scrollpos = getScrollPos();
-    scrollHeight = menu.scrollHeight; //Height of an elements content, including content not visible on the screen
-    clonesHeight = getClonesHeight();
-
-    if(scrollpos <= 0){
-        setScrollPos(1); //Initial set at 1px to enable upwards scrolling
-    }
-
-  }
+//   return cloneHeight;
+// }
 
 
-  function scrollUpdate(){
-    if(!disableScroll){
-        scrollpos = getScrollPos();
-        if(cloneHeight + scrollpos >= scrollheight){
-          //scroll back to top when we reach bottom
-          setScrollPos(1);
-          disableScroll = true;
-        } else if (scrollpos <= 0){
-          //scroll to bottom when we reach the top
-          setScrollPos(scrollheight = clonesHeight);
-          disableScroll = true;
-        }
-    }
+// //Recalculate dimensions when screen is resized
 
-    if(disableScroll){
-      //Disable scroll-jumping for a short period to avoid flickering
+// function reCalc(){
+//     scrollpos = getScrollPos();
+//     scrollHeight = menu.scrollHeight; //Height of an elements content, including content not visible on the screen
+//     clonesHeight = getClonesHeight();
 
-      window.setTimeout(() =>{
-          disableScroll = false;
-      }, 40);
-    }
-  }
+//     if(scrollpos <= 0){
+//         setScrollPos(1); //Initial set at 1px to enable upwards scrolling
+//     }
+
+//   }
 
 
-  function onLoad(){
-      items.forEach(item => {
-          const clone = item.cloneNode(true);
-          menu.appendChild(clone);
-          clone.classList.add('js-clone');
-      });
+//   function scrollUpdate(){
+//     if(!disableScroll){
+//         scrollpos = getScrollPos();
+//         if(cloneHeight + scrollpos >= scrollheight){
+//           //scroll back to top when we reach bottom
+//           setScrollPos(1);
+//           disableScroll = true;
+//         } else if (scrollpos <= 0){
+//           //scroll to bottom when we reach the top
+//           setScrollPos(scrollheight = clonesHeight);
+//           disableScroll = true;
+//         }
+//     }
 
-      clones = menu.querySelector('.js-clone');
+//     if(disableScroll){
+//       //Disable scroll-jumping for a short period to avoid flickering
 
-      reCalc();
+//       window.setTimeout(() =>{
+//           disableScroll = false;
+//       }, 40);
+//     }
+//   }
 
-      menu.addEventListener('scroll', () =>{
-          window.requestAnimationFrame(scrollUpdate);
-      }, false);
+
+//   function onLoad(){
+//       items.forEach(item => {
+//           const clone = item.cloneNode(true);
+//           menu.appendChild(clone);
+//           clone.classList.add('js-clone');
+//       });
+
+//       clones = menu.querySelector('.js-clone');
+
+//       reCalc();
+
+//       menu.addEventListener('scroll', () =>{
+//           window.requestAnimationFrame(scrollUpdate);
+//       }, false);
 
 
-      window.addEventListener('resize', () => {
-        window.requestAnimationFrame(reCalc);
-      }, false)
-  }
+//       window.addEventListener('resize', () => {
+//         window.requestAnimationFrame(reCalc);
+//       }, false)
+//   }
 
-window.onload = onLoad();
+// window.onload = onLoad();
+
+
+
+
+
+
+gsap.registerPlugin(ScrollToPlugin);
+
+
+
+// document.querySelectorAll("arrowbtn").forEach((btn, index) => {
+//   btn.addEventListener("click", () => {
+//     gsap.to(window, {duration: 0.5, scrollTo: "#chapter1"});
+//   });
+// });
+
+
+
+
+
+
+
+
+
 
 
 
