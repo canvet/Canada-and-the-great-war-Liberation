@@ -34,7 +34,7 @@
   .wrapper{
     display: flex;
     flex-wrap: nowrap;
-    width: 30000vh;
+    width: 24040vh;
     // overflow:hidden;
     // overflow-x: scroll;
     // overflow-y: hidden;
@@ -46,21 +46,24 @@
 
   
   .navbar{
-    width: 4rem;
+    width:4.5vw;
     height: 100vh;
     position: fixed;
-   background: rgba(255, 255, 255, 0.322);
+   background: #C72026;
     z-index: 999;
     opacity: 1;
-    border-right: 2px solid white;
+    padding: 0rem;
+    border-right: 1px solid white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
   
   }
   
   
   .navtextwrapper{
-    // background: lightcyan;
-    height: 100vh;
-    width: 100%;
+    background: rgb(2, 68, 68);
+    width: 4vw;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -69,20 +72,91 @@
 
   
   .navbartext{
-  width: 50rem;
+  width: 50vh;
   text-align: center;
-//   background: yellow;
+  // background: yellow;
     transform: rotate(90deg);
     position: absolute;
     color: white;
     font-family: var(--proxima);
     font-style: normal;
     text-transform: uppercase;
-    letter-spacing: 2px;;
+    letter-spacing: 2px;
     font-size: 0.8rem;
     
   }
 
+
+  .mline{
+      width: 1.7vw;
+      height: 0.3vh;
+      background: white;
+      
+  }
+
+  
+
+
+  .openbtncontainer{
+    width: 100%;
+    height: 15vh;
+    // background: rgb(255, 54, 54);
+    z-index: 999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom:1px solid white;
+
+  }
+
+.burgermenu{
+  // width: 1.7rem;
+  height: 2.5vh;
+  // background: red;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+}
+
+  
+
+
+  .dotcontainer{
+    width: 100%;
+    height: 15vh;
+    // background: blue;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  
+    
+   
+  }
+
+  .dotwrapper{
+    // background: red;
+    height: 20vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .dotline{
+    width: 80%;
+    height: 1px;
+    background: white;
+
+  }
+
+  .dot{
+    width: 1vh;
+    height: 1vh;
+    background: white;
+    border-radius: 50px;
+    margin-bottom: 2vh;
+  }
   
 
   //  ----menu styling----//
@@ -90,20 +164,20 @@
 .menu{
   width: 100%;
   height: 200vh;
-  background: rgba(255, 0, 0, 0.274);
+  background: #C72026;
   position: absolute;
   z-index: 888;
   opacity: 1;
-  transform: translateX(-100%);
-  display: block;
+  transform: translateX(-110%);
+  display: none;
   padding: 10vh;
 
   
 }
 
 .closebtnwrapper{
-width: 5rem;
-height: 5rem;
+width: 10vw;
+height: 10vw;
 position: fixed;
 z-index: 99999;
 right: 0;
@@ -112,33 +186,32 @@ background: transparent;
 display: flex;
 justify-content: center;
 align-items: center;
+// background: green;
 }
 
 .closebtn{
-  width: 3rem;
-  height: 3rem;
-  background: green;
+  width: 6vw;
+  height: 6vw;
+  // background: green;
   position: absolute;
   z-index: 99998;
   // right: 0;
-  transform: translateX(-200%);
-  // display: none;
+  transform: translateX(-150%);
+  display: none;
   // opacity: 0;
 }
 
-.openbtn{
-  width: 2rem;
-  height: 2rem;
-  background: black;
-  z-index: 999;
-}
+
 
 .mli{
-  // display: flex;
+  display: grid;
+  grid-template-columns: 0.3fr 1fr;
+  // width: 80%;
+ padding: 3vh;
   // align-items: center;
   // flex-direction: column;
   margin-bottom: 3vh;
-  background: green;
+  // background: green;
   overflow: hidden;
 }
 
@@ -146,22 +219,30 @@ align-items: center;
   font-family: var(--proxima);
   font-style: normal;
   text-transform: uppercase;
+  font-size: 2vw;
+  color: white;
+  
 }
 
 .mn{
   font-family: brand;
-  font-size: 5vh;
+  font-size: 5vw;
+  color: white;
+  transition: 0.5s;
+}
+
+.mn:hover{
+  color: #FAC30B;
+  cursor: pointer;
 }
 
 .ms{
   font-family: var(--proxima);
   font-style: normal;
-  text-transform: uppercase;
+  font-size: 2vw;
+  color: white;
 }
 
-.mnc{
-  transform: translateY(120%);
-}
 
 
 

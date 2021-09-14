@@ -23,7 +23,6 @@ overlaytl.to('#otw1',2, {delay:1, opacity: 0}, '-=2');
 
 
 
-
 overlaytl.to('#otw2',2, {delay:1, opacity: 1});
 overlaytl.to('#os2',3, {letterSpacing: '0.5vh'}, '-=2');
 overlaytl.to('#otw2',2, {delay:1, opacity: 0}, '-=2');
@@ -81,13 +80,18 @@ const closeDrawerBtn = document.getElementById("closebtn");
 
 
 
+
 // if the drawer is open or not
 let openDrawer = false;
 
 menutl
-    .to(drawer, 1, {display: 'block', x: 0,  ease: Expo.easeInOut })
-    .to(closeDrawerBtn, 0.5, {x: 0})
-    .to('.mnc', 0.5, {y:0}, '-=0.5')
+    .to('#navbar', 1, {background: '#C72026'})
+    .to('#mline1', 2, {x: -30, ease: Expo.easeInOut}, '-=2')
+    .to('#mline3', 2, {x: 30, ease: Expo.easeInOut}, '-=2')
+    .to(drawer, 2, {display: 'block', x: 0,  ease: Expo.easeInOut }, '-=1.5')
+    .to(closeDrawerBtn, 0.5, {x: 0, display: 'block'})
+    // .to('.mnc', 1, {y:0}, '-=0.5')
+    // .to('.mch', 1, {y:0}, '-=1')
    .to('#scrollbar', {position: 'fixed'})
     .reverse();
 
@@ -182,9 +186,27 @@ function scrollto(){
 
 
 
+document.getElementById('introlink').onclick = function() {linktointro()};
+document.getElementById('chap1link').onclick = function() {linktochap1()};
 
 
+function linktointro(){
 
+  myHorizontalScrollbar.scrollIntoView(document.querySelector('#introchapter'), {
+    offsetLeft: number = 0,
+  });
+
+
+ 
+}
+
+function linktochap1(){
+
+myHorizontalScrollbar.scrollIntoView(document.querySelector('#chapter1'), {
+  offsetLeft: number = 0,
+});
+
+}
 
 // function transformScroll(event) {
 //   if (!event.deltaY) {
@@ -197,6 +219,29 @@ function scrollto(){
 
 // var element = document.scrollingElement || document.documentElement;
 // element.addEventListener('wheel', transformScroll);
+
+
+// var navbar = gsap.timeline();
+// navbar.to('#navbar',0.5, {background: 'black'});
+
+//     ScrollTrigger.create({
+//     trigger: "#blackbg",
+//     endtrigger: "#chapter1",
+//     start: "left left",
+//     horizontal: true,
+//     scroller: scrollbar,
+//     animation: navbar,
+//     toggleActions: 'play none none reverse'
+//     // scrub: true,
+//     // markers: true
+//   });
+
+
+
+ 
+
+
+
 
 
 
@@ -212,7 +257,7 @@ parallaximgdesk.to('.int-s1',{backgroundPosition: "100% 10%"});
     scroller: scrollbar,
     animation: parallaximgdesk,
     scrub: true,
-    markers: true
+    // markers: true
   });
 
 
@@ -294,6 +339,43 @@ imgrotate.forEach((parallax, i) => {
 
 
 
+// -----------change color of the navbar on scroll------///
+
+
+window.addEventListener("load", function () {
+  const scrollNavElems = document.querySelectorAll("[data-navcolor]");
+  scrollNavElems.forEach((navSection, i) => {
+    const prevBg = i === 0 ? "" : scrollNavElems[i - 1].dataset.navcolor;
+    
+
+    ScrollTrigger.create({
+      trigger: navSection,
+      scroller: scrollbar,
+      start: "left 90%",
+      horizontal: true,
+      onEnter: () =>
+        gsap.to("#navbar", 1, {backgroundColor: navSection.dataset.navcolor, overwrite: "auto"}),
+
+        
+        
+
+      onLeaveBack: () =>
+        gsap.to("#navbar", 1, {
+          backgroundColor: prevBg,
+          overwrite: "auto"
+        })
+    });
+  });
+});
+
+
+
+
+
+
+
+
+
 // Change body background color for various sections   //
 window.addEventListener("load", function () {
   const scrollColorElems = document.querySelectorAll("[data-bgcolor]");
@@ -328,6 +410,9 @@ window.addEventListener("load", function () {
 
 
 
+
+
+
 // ----stat line animation ------//
 
 const reveal = gsap.utils.toArray('.numline');
@@ -340,7 +425,7 @@ reveal.forEach((numline, i) => {
     animation: lineanim,
     horizontal: true,
     scroller: scrollbar,
-    markers: true
+    // markers: true
   
     
   });
@@ -370,7 +455,7 @@ poppy.to(".poppyflower",2, {rotate: '40deg', marginLeft: '-50vh'});
     scroller: scrollbar,
     animation: poppy,
     scrub: true,
-    markers: true
+    // markers: true
   
 });
 
