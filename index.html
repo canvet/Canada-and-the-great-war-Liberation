@@ -2,23 +2,108 @@
 <html lang="en" >
 <head>
   <meta charset="UTF-8">
-  <title>CodePen - Smooth-scrollbar + Scrolltrigger proxy</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css'>
-  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" media="screen and (min-width: 769px)" href="./style.css" />
+  <link rel="stylesheet" media="screen and (max-width: 768px)" href="./mobstyle.css" />
+  <!-- <link rel="stylesheet" href="./style.css"> -->
   <link rel="stylesheet" href="https://use.typekit.net/vlq3nzo.css">
-  
+  <title>Canada and the great war : Liberation</title>
 
 </head>
 <body>
 
   <div class="cursor"></div>
   <!-- <div class="cursor-follower"></div> -->
+
+
+
+
+<!-- hover slide in navigation -->
+
+
+<div  class="snavbar-container">
+
+  
+
+  <div id="snav" class="navcblock">
+          <div id="mobintro" class="chapcontainer">
+            <h3 class="snavchaptext">Introduction</h3>
+          </div>
+
+
+          <div id="mobchap1" class="chapcontainer">
+            <h3 class="snavchaptext">Part</h3>
+            <h2 class="snavchapnum">1</h2>
+          </div>
+
+
+          <div  id="mobchap2"  class="chapcontainer">
+            <h3 class="snavchaptext">Part</h3>
+            <h2 class="snavchapnum">2</h2>
+          </div>
+
+
+          <div id="mobchap3"  class="chapcontainer">
+            <h3 class="snavchaptext">Part</h3>
+            <h2 class="snavchapnum">3</h2>
+          </div>
+
+
+          <div id="mobchap4"  class="chapcontainer">
+            <h3 class="snavchaptext">Part</h3>
+            <h2 class="snavchapnum">4</h2>
+          </div>
+
+          <div id="mobchap5"  class="chapcontainer">
+            <h3 class="snavchaptext">Part</h3>
+            <h2 class="snavchapnum">5</h2>
+          </div>
+
+          <div id="mobconc"  class="chapcontainer">
+            <h3 class="snavchaptext">Conclusion</h3>
+          </div>
+
+          
+              <div class="snavseparator"></div>
+          
+
+          <div id="about" class="chapcontainer">
+            <h3 class="snavchaptext">About</h3>
+          </div>
+  </div>
+
+  <div id="snav" class="hoverblock">
+    <img class="snavarrow" src="snavarrow.svg" alt="">
+  </div>
+      
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
  
 
 
   <!-- Navigation -->
 
-<div id="navbar" class="navbar">
+<div id="navbar" class="navbar nav-down">
+
+
+  <div class="moblogo-container">
+          <img src="logowhite.svg" alt="">
+  </div>
 
       <div id="openbtn" class="openbtncontainer">
 
@@ -91,7 +176,7 @@
 
 
                   <div class="mnc">
-                    <h1 class="mn"><i>“Viva les canadiens!”</i></h1>
+                    <h1 id="chap2link" class="mn"><i>“Viva les canadiens!”</i></h1>
                     <!-- <h2 class="ms">Map: The last 100 Days</h2> -->
                   </div>
             
@@ -106,7 +191,7 @@
 
 
                     <div class="mnc">
-                      <h1 class="mn">Humanitarian mission</h1>
+                      <h1 id="chap3link" class="mn">Humanitarian mission</h1>
                     </div>
               
             </li>
@@ -120,7 +205,7 @@
 
 
                       <div class="mnc">
-                        <h1 class="mn">Fighting foR FREEDOM</h1>
+                        <h1 id="chap4link" class="mn">Fighting foR FREEDOM</h1>
                       </div>
         
              </li>
@@ -134,7 +219,7 @@
 
 
                       <div class="mnc">
-                        <h1 class="mn">Why were the liberators 
+                        <h1 id="chap5link" class="mn">Why were the liberators 
                           forgotten?</h1>
                       </div>
 
@@ -149,37 +234,153 @@
 
 
                       <div class="mnc">
-                        <h1 class="mn">Not in vain</h1>
+                        <h1 id="conclink" class="mn">Not in vain</h1>
                       </div>
 
              </li>
 
         </ul>
 
+
+        
+      
 </div>
 
 
 
-
+<!-- Menu close button -->
 
 <div  class="closebtnwrapper">
 
         <img id="closebtn" class="closebtn" src="closeicon.svg" alt="">
 
-        
+</div>
+
+
+<div  class="closeaboutwrapper">
+
+  <img id="closeabout" class="closeabout" src="aboutclose.svg" alt="">
+
+</div>
+
+
+<!-- About text on menu -->
+
+<div  class="abouttext-container">
+
+  <h3 id="abouttext" class="mh abouttext">About</h3>
+
 </div>
 
 
 
 
-<!-- <section id="vertical">
+<!--------- about us section-------->
+
+<div class="about-container">
+
+  <div class="about-left">
+
+          <div class="leftsec1">
+                <img class="sipimg" src="greatwar-liberation.jpg" alt="">
 
 
-  <div class="demo">
+            <div class="sipname-wrapper">
+                  <h2 class="siptitle">Canada and the 
+                    Great War : Liberation</h2>
 
-    <h1>Hello test</h1>
+                    <h3 class="peoplenames">Subscribe to <a href="https://shop.legionmagazine.com/product/canadas-ultimate-story/"><span style="color: red;"><i>Canada’s Ultimate Story </i></span></a></h3>
+            </div>
+               
+          </div>
 
-  </div> -->
+
+          <div class="leftsec2">
+
+                  <h4 class="designation">Contributor</h4>
+
+                    <h3 class="peoplenames aboutsip"><b>Tim Cook</b> is the author of 13 books, including <i>The Fight for History: 75 Years of Forgetting, Remembering, and Remaking Canada’s Second World War</i>. He is a member of the Royal Society of Canada and a member of the Order of Canada.</h3>
+          </div>
+
+
+          <div class="leftseparator"></div>
+
+  </div>
+
+
+      <div class="about-right">
+
+        <ul class="peoplelist">
+
+          <li class="people">
+            <h4 class="designation">Publisher</h4>
+            <h3 class="peoplenames">Canvet Publications Ltd.</h3>
+          </li>
+
+          <li class="people">
+            <h4 class="designation">General Manager</h4>
+            <h3 class="peoplenames">Jennifer Morse</h3>
+          </li>
+
+          <li class="people">
+            <h4 class="designation">Art Director, Circulation and Production manager</h4>
+            <h3 class="peoplenames">Jason Duprau</h3>
+          </li>
+
+          <li class="people">
+            <h4 class="designation">Interim art director and production manager</h4>
+            <h3 class="peoplenames">Jennifer McGill</h3>
+          </li>
+
+          <li class="people">
+            <h4 class="designation">Editor</h4>
+            <h3 class="peoplenames">Eric Harris</h3>
+          </li>
+
+          <li class="people">
+            <h4 class="designation">Assistant Editor</h4>
+            <h3 class="peoplenames">Trevor Oattes</h3>
+          </li>
+
+          <li class="people">
+            <h4 class="designation">Staff Writers</h4>
+            <h3 class="peoplenames">Sharon Adams</h3>
+            <h3 class="peoplenames">Stephen J. Throne</h3>
+          </li>
+
+          <li class="people">
+            <h4 class="designation">Admin</h4>
+            <h3 class="peoplenames">Doris Williams</h3>
+          </li>
+
+          <li class="people">
+            <h4 class="designation">Researcher/Admin assistant</h4>
+            <h3 class="peoplenames">Stephanie Slegtenhorst</h3>
+          </li>
+
+          <li class="people">
+            <h4 class="designation">Web Designer</h4>
+            <h3 class="peoplenames">Ankush Katoch</h3>
+          </li>
+
+          <li class="people">
+            <h4 class="designation">Designers</h4>
+            <h3 class="peoplenames">Derryn Allebone</h3>
+            <h3 class="peoplenames">Dyann Bernard</h3>
+            <h3 class="peoplenames">Sophie Jalbert</h3>
+          </li>
+
+        </ul>
+
+       
+      </div>
+
+</div>
+
+
+
+
+
 
 
 
@@ -236,7 +437,7 @@
     
 
 
-    <section id="s1" class="int-s1">
+    <section data-navcolor="#C72026" id="s1" class="int-s1">
 
         <div class="logocontainer">
               <img class="logo" src="logo.svg" alt="">
@@ -245,6 +446,13 @@
       <div class="arrowcontainer">
               <div id="arrowbtn" class="arrowbtn">
                 <img class="arrow" src="arrow.svg" alt="">
+              </div>
+
+      </div>
+
+      <div class="mobarrowcontainer">
+              <div id="mobarrowbtn" class="mobarrowbtn">
+                <img class="mobarrow" src="arrow.svg" alt="">
               </div>
 
       </div>
@@ -368,7 +576,7 @@
 
              <ul>
 
-                  <li class="white list" id="li">
+                  <li class="white list mobblk" id="li">
                         <span>500,000</span>
                   </li>
 
@@ -389,7 +597,7 @@
 
             <ul>
 
-              <li class="white list" id="li">
+              <li class="white list mobblk" id="li">
                     <span>6,453</span>
               </li>
 
@@ -523,7 +731,7 @@
 
 
 
-<section data-bgcolor="#000000" id="blackbg" class="calloutsection">
+<section data-navcolor="#000000" data-bgcolor="#000000" id="blackbg" class="calloutsection">
 
     <h3 class="callout white">Why don’t Canadians think of the fighting 
       in the Great War as a  <span style="color: #7C7C00;">war of liberation?</span></h3>
@@ -639,7 +847,7 @@
 
             <ul>
 
-              <li class="white list" id="li">
+              <li class="white list mobblk" id="li">
                     <span>620,000</span>
               </li>
 
@@ -660,7 +868,7 @@
 
           <ul>
 
-            <li class="white list" id="li">
+            <li class="white list mobblk" id="li">
                   <span>66,000</span>
             </li>
 
@@ -1131,7 +1339,7 @@
 
           <ul class="centerstat">
 
-              <li class="white list" id="li">
+              <li class="white list mobblk" id="li">
                     <span>4,000</span>
               </li>
 
@@ -1170,7 +1378,7 @@
 
 
 
-<section data-bgcolor="#00414A" id="" class="chapterintro">
+<section data-navcolor="#00414A" data-bgcolor="#00414A" id="" class="chapterintro c1sf">
 
   <div class="chaptertitlecontainer ctc1">
         <!-- <h2 class="chapterheading">Part One</h2> -->
@@ -1291,7 +1499,7 @@
 
 
 
-<section data-bgcolor="#667A74" class="picturesection">
+<section data-navcolor="#667A74" data-bgcolor="#667A74" class="picturesection">
 
         <img id="" class="GeorgeOrmsby" src="part1-img16.png" alt="">
 
@@ -1409,7 +1617,7 @@ The gift of freedom had to be returned to the persecuted civilians before he or 
 
 <!-----------------chapter Two ------------------>
 
-<section data-navcolor="#CBAD2A" data-bgcolor="#ffffff" class="chapter chapter2">
+<section data-navcolor="#CBAD2A" data-bgcolor="#ffffff" id="chapter2" class="chapter chapter2">
 
   <div class="chapterheadwrapper">
       <h2 class="chapterhead">Part</h2>
@@ -1623,7 +1831,7 @@ Canadian participation in the Hundred Days campaign was the most important and i
 
           <ul class="centerstat">
 
-              <li class="white list" id="li">
+              <li class="white list mobblk" id="li">
                     <span>3,800</span>
               </li>
 
@@ -1873,7 +2081,7 @@ Canadian participation in the Hundred Days campaign was the most important and i
 
         <ul class="centerstat">
 
-            <li class="white list" id="li">
+            <li class="white list mobblk" id="li">
                   <span>32,000</span>
             </li>
 
@@ -1947,7 +2155,7 @@ Canadian participation in the Hundred Days campaign was the most important and i
 
       <ul class="centerstat">
 
-          <li class="white list" id="li">
+          <li class="white list mobblk" id="li">
                 <span>130 km</span>
           </li>
 
@@ -2428,7 +2636,7 @@ Canadian participation in the Hundred Days campaign was the most important and i
 
 <!-----------------chapter Three ------------------>
 
-<section data-navcolor="#596990" data-bgcolor="#ffffff" class="chapter chapter3">
+<section data-navcolor="#596990" data-bgcolor="#ffffff" id="chapter3" class="chapter chapter3">
 
   <div class="chapterheadwrapper">
       <h2 class="chapterhead">Part</h2>
@@ -2982,7 +3190,7 @@ Canadian participation in the Hundred Days campaign was the most important and i
 
           <ul class="centerstat">
 
-              <li class="white list" id="li">
+              <li class="white list mobblk" id="li">
                     <span>June 1917</span>
               </li>
 
@@ -3008,7 +3216,7 @@ Canadian participation in the Hundred Days campaign was the most important and i
 
 <!-----------------chapter Four ------------------>
 
-<section data-navcolor="#BE8780" data-bgcolor="#ffffff" class="chapter chapter4">
+<section data-navcolor="#BE8780" data-bgcolor="#ffffff" id="chapter4" class="chapter chapter4">
 
   <div class="chapterheadwrapper">
       <h2 class="chapterhead">Part</h2>
@@ -3297,7 +3505,7 @@ Canadian participation in the Hundred Days campaign was the most important and i
 
             <ul class="centerstat">
 
-                <li class="white list" id="li">
+                <li class="white list mobblk" id="li">
                       <span>83</span>
                 </li>
 
@@ -3383,7 +3591,7 @@ Canadian participation in the Hundred Days campaign was the most important and i
 
           <ul class="centerstat">
 
-              <li class="white list" id="li">
+              <li class="white list mobblk" id="li">
                     <span>720,000</span>
               </li>
 
@@ -3718,7 +3926,7 @@ Currie’s soldiers at the sharp end were less enthused. They had been pushed ha
 
 <!-----------------chapter Five ------------------>
 
-<section data-navcolor="#808DB9" data-bgcolor="#ffffff" class="chapter chapter5">
+<section data-navcolor="#808DB9" data-bgcolor="#ffffff" id="chapter5" class="chapter chapter5">
 
   <div class="chapterheadwrapper">
       <h2 class="chapterhead">Part</h2>
@@ -4096,7 +4304,7 @@ Currie’s soldiers at the sharp end were less enthused. They had been pushed ha
 
         <ul class="centerstat">
 
-            <li class="white list" id="li">
+            <li class="white list mobblk" id="li">
                   <span>267,813</span>
             </li>
 
@@ -4115,7 +4323,7 @@ Currie’s soldiers at the sharp end were less enthused. They had been pushed ha
 <!---------------Conclusion-------------- -->
 
 
-<section data-navcolor="#C72026" data-bgcolor="#FEFFEA" id="" class="chapterintro">
+<section data-navcolor="#C72026" data-bgcolor="#FEFFEA" id="conc" class="chapterintro">
 
   <div class="chaptertitlecontainer">
 
@@ -4412,10 +4620,22 @@ Currie’s soldiers at the sharp end were less enthused. They had been pushed ha
 
 <div class="arrowcontainer2">
 
+          <h2 class="begintext white">Go to the beginning</h2>
+
+          <div id="arrowend" class="arrowbtn2">
+            <img class="arrow2" src="arrow.svg" alt="">
+          </div>
+
+</div>
+
+
+
+<div class="mobarrowcontainer2">
+
   <h2 class="begintext white">Go to the beginning</h2>
 
-  <div class="arrowbtn2">
-    <img class="arrow" src="arrow.svg" alt="">
+  <div id="mobarrowend" class="mobarrowbtn2">
+    <img class="mobarrow2" src="arrow.svg" alt="">
   </div>
 
 </div>
@@ -4445,7 +4665,9 @@ Currie’s soldiers at the sharp end were less enthused. They had been pushed ha
 <script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/ScrollTrigger.min.js'></script>
 <script src='https://unpkg.com/smooth-scrollbar@latest/dist/smooth-scrollbar.js'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/smooth-scrollbar/8.3.1/plugins/overscroll.js'></script>
+<!-- <script src="mediaquery.js"></script> -->
 <script src="./script.js"></script>
+<!-- <script src="./mobmain.js"></script> -->
 
 </body>
 </html>

@@ -5,7 +5,10 @@
 $('#scrollbar').waitForImages({
   finished: function() {
     // alert('All images have loaded.');
-    gsap.to(".overlay", 1, {y: '-100%', display: 'none'});
+
+
+    var fadeoverlay = gsap.timeline({delay: 0})
+    fadeoverlay.to(".overlay", 1, {opacity: 0, display: 'none'});
   },
 
   waitForAll: true
@@ -39,29 +42,18 @@ overlaytl.to('#otw4',2, {delay:1, opacity: 0}, '-=2');
 
 
 
-// Create a media condition that targets viewports at least 768px wide
+
+
+
+
+
+
 // const mediaQuery = window.matchMedia('(max-width: 768px)')
 // // Check if the media query is true
 // if (mediaQuery.matches) {
-//   // Then trigger an alert
 //   alert('Media Query Matched!')
-//   $('link[href="./style.css"]').remove();
-//   $('head').append('<link href="./mobstyle.css" rel="stylesheet" id="newcss" />');
-
-//   document.getElementById("scrollbar").style.display = "none";
-
-
-
-//   var demoanim = gsap.timeline();
-//   demoanim.to('h1',{y: -100});
-  
-//       ScrollTrigger.create({
-//       trigger: ".demo",
-//       start: "top top",
-//       animation: demoanim,
-//       markers: true
-//     });
-  
+ 
+//   gsap.to('.int-s1', {backgroundSize: 'cover'});
 
 // }
 
@@ -69,48 +61,6 @@ overlaytl.to('#otw4',2, {delay:1, opacity: 0}, '-=2');
 
 
 
-
-
-// ----Menu reveal animation-----//
-var menutl = new TimelineLite({ paused:true });
-
-const drawer = document.getElementById("menu");
-const toggle = document.getElementById("openbtn");
-const closeDrawerBtn = document.getElementById("closebtn");
-
-
-
-
-// if the drawer is open or not
-let openDrawer = false;
-
-menutl
-    .to('#navbar', 1, {background: '#C72026'})
-    .to('#mline1', 2, {x: -30, ease: Expo.easeInOut}, '-=2')
-    .to('#mline3', 2, {x: 30, ease: Expo.easeInOut}, '-=2')
-    .to(drawer, 2, {display: 'block', x: 0,  ease: Expo.easeInOut }, '-=1.5')
-    .to(closeDrawerBtn, 0.5, {x: 0, display: 'block'})
-    // .to('.mnc', 1, {y:0}, '-=0.5')
-    // .to('.mch', 1, {y:0}, '-=1')
-   .to('#scrollbar', {position: 'fixed'})
-    .reverse();
-
-   
-;
-toggle.onclick = () => {
-    openDrawer = menutl.reversed();
-    menutl.reversed( !menutl.reversed() );
-    
-};
-
- // --Reverse the menu items animations-//
-const reverseDrawerTween = () => {
-  menutl.reverse();
-    openDrawer = menutl.reversed();
-    
-};
-
-closeDrawerBtn.onclick = reverseDrawerTween;
 
 
 
@@ -127,337 +77,597 @@ gsap.registerPlugin(ScrollTrigger);
 
 // ------Transform vertical scroll to horizontal with smooth scroll plugin-----//
 
-class HorizontalScrollPlugin extends Scrollbar.ScrollbarPlugin {
-  static pluginName = "horizontalScroll";
+// ------Enclosing the vertical to horizontal conversion in a function to swithc off and on based on media queries---//
+function scrollbarResponsive() {
 
-  transformDelta(delta, fromEvent) {
-    if (!/wheel/.test(fromEvent.type)) {
-      return delta;
-    }
+  // Calls in the smooth scroll plugin
+          class HorizontalScrollPlugin extends Scrollbar.ScrollbarPlugin {
+            static pluginName = "horizontalScroll";
 
-    const { x, y } = delta;
+// Converts vertical to horizontal
+            transformDelta(delta, fromEvent) {
+              if (!/wheel/.test(fromEvent.type)) {
+                return delta;
+              }
 
-    return {
-      y: 0,
-      x: Math.abs(x) > Math.abs(y) ? x : y
-    };
-  }
+              const { x, y } = delta;
+
+              return {
+                y: 0,
+                x: Math.abs(x) > Math.abs(y) ? x : y
+              };
+            }
+          }
+
+          // Sets the scrollbar to a custom name//
+          const scrollbar = document.querySelector("#scrollbar");
+          Scrollbar.use(HorizontalScrollPlugin, OverscrollPlugin);
+          const myHorizontalScrollbar = Scrollbar.init(scrollbar);
+
+          // Sets position of the scrollbar to start
+          myHorizontalScrollbar.setPosition(0, 0);
+
+          // Tells scrolltrigger to update based on the custom scroll value
+
+          ScrollTrigger.scrollerProxy(scrollbar, {
+            scrollTop(value) {
+              if (arguments.length) {
+                myHorizontalScrollbar.scrollTop = value;
+              }
+              return myHorizontalScrollbar.scrollTop;
+            },
+            scrollLeft(value) {
+              if (arguments.length) {
+                myHorizontalScrollbar.scrollLeft = value;
+              }
+              return myHorizontalScrollbar.scrollLeft;
+            }
+          });
+
+          // scrolltrigger listens to scrollbar and updates
+          myHorizontalScrollbar.addListener(ScrollTrigger.update);
+
+
+
+          // On click of the arrow button in the beginning move to introduction
+              document.getElementById('arrowbtn').onclick = function() {scrollto()};
+
+              function scrollto(){
+                
+                myHorizontalScrollbar.scrollTo(1300, 0, 1500);
+                
+              }
+
+
+
+            // ---On click of the end button scroll to beggining--//
+
+          document.getElementById('arrowend').onclick = function() {linktostart()};
+          
+          function linktostart(){
+
+                myHorizontalScrollbar.scrollIntoView(document.querySelector('#s1'), {
+                  offsetLeft: number = 0,
+                });
+            
+          }
+
+
+
+
+          // ----scroll to a section on click of menu items, uses the smooth scrollbar plugin---//
+
+          document.getElementById('introlink').onclick = function() {linktointro()};
+          document.getElementById('chap1link').onclick = function() {linktochap1()};
+          document.getElementById('chap2link').onclick = function() {linktochap2()};
+          document.getElementById('chap3link').onclick = function() {linktochap3()};
+          document.getElementById('chap4link').onclick = function() {linktochap4()};
+          document.getElementById('chap5link').onclick = function() {linktochap5()};
+          document.getElementById('conclink').onclick = function() {linktoconc()};
+
+
+
+          function linktointro(){
+
+            myHorizontalScrollbar.scrollIntoView(document.querySelector('#introchapter'), {
+              offsetLeft: number = 0,
+            });
+          }
+
+          function linktochap1(){
+
+          myHorizontalScrollbar.scrollIntoView(document.querySelector('#chapter1'), {
+            offsetLeft: number = 0,
+          });
+
+          }
+
+
+          function linktochap2(){
+
+            myHorizontalScrollbar.scrollIntoView(document.querySelector('#chapter2'), {
+              offsetLeft: number = 0,
+            });
+            
+          }
+
+
+          function linktochap3(){
+
+            myHorizontalScrollbar.scrollIntoView(document.querySelector('#chapter3'), {
+              offsetLeft: number = 0,
+            });
+            
+          }
+
+
+          function linktochap4(){
+
+            myHorizontalScrollbar.scrollIntoView(document.querySelector('#chapter4'), {
+              offsetLeft: number = 0,
+            });
+            
+          }
+
+
+          function linktochap5(){
+
+            myHorizontalScrollbar.scrollIntoView(document.querySelector('#chapter5'), {
+              offsetLeft: number = 0,
+            });
+            
+          }
+
+
+          function linktoconc(){
+
+            myHorizontalScrollbar.scrollIntoView(document.querySelector('#conc'), {
+              offsetLeft: number = 0,
+            });
+            
+          }
+
+
+
+
+
+
+
 }
 
-const scrollbar = document.querySelector("#scrollbar");
-Scrollbar.use(HorizontalScrollPlugin, OverscrollPlugin);
-const myHorizontalScrollbar = Scrollbar.init(scrollbar);
-
-myHorizontalScrollbar.setPosition(0, 0);
-
-ScrollTrigger.scrollerProxy(scrollbar, {
-  scrollTop(value) {
-    if (arguments.length) {
-      myHorizontalScrollbar.scrollTop = value;
-    }
-    return myHorizontalScrollbar.scrollTop;
-  },
-  scrollLeft(value) {
-    if (arguments.length) {
-      myHorizontalScrollbar.scrollLeft = value;
-    }
-    return myHorizontalScrollbar.scrollLeft;
-  }
-});
-
-myHorizontalScrollbar.addListener(ScrollTrigger.update);
 
 
+// Create a media condition that targets viewports at least 768px wide
+// const mediaQuery = window.matchMedia('(max-width: 768px)')
+// // Check if the media query is true
+// if (mediaQuery.matches) {
+//   // Then trigger an alert
+//   alert('Media Query Matched!')
+//   $('link[href="./style.css"]').remove();
+//   $('head').append('<link href="./mobstyle.css" rel="stylesheet" id="newcss" />');
 
-// ----scroll to a section on click, uses the smooth scrollbar plugin---//
 
-document.getElementById('arrowbtn').onclick = function() {scrollto()};
-
-function scrollto(){
-
-  myHorizontalScrollbar.scrollTo(1300, 0, 1500);
+//   myHorizontalScrollbar.destroyAll()
   
-  // myHorizontalScrollbar.scrollIntoView(document.querySelector('#chapter1'), {
-  //   alignToTop: boolean = true,
-  //   offsetLeft: number = 0,
-   
-  // });
-}
-
-
-
-document.getElementById('introlink').onclick = function() {linktointro()};
-document.getElementById('chap1link').onclick = function() {linktochap1()};
-
-
-function linktointro(){
-
-  myHorizontalScrollbar.scrollIntoView(document.querySelector('#introchapter'), {
-    offsetLeft: number = 0,
-  });
-
-
- 
-}
-
-function linktochap1(){
-
-myHorizontalScrollbar.scrollIntoView(document.querySelector('#chapter1'), {
-  offsetLeft: number = 0,
-});
-
-}
-
-// function transformScroll(event) {
-//   if (!event.deltaY) {
-//     return;
-//   }
-
-//   event.currentTarget.scrollLeft += event.deltaY + event.deltaX;
-//   event.preventDefault();
 // }
 
-// var element = document.scrollingElement || document.documentElement;
-// element.addEventListener('wheel', transformScroll);
-
-
-// var navbar = gsap.timeline();
-// navbar.to('#navbar',0.5, {background: 'black'});
-
-//     ScrollTrigger.create({
-//     trigger: "#blackbg",
-//     endtrigger: "#chapter1",
-//     start: "left left",
-//     horizontal: true,
-//     scroller: scrollbar,
-//     animation: navbar,
-//     toggleActions: 'play none none reverse'
-//     // scrub: true,
-//     // markers: true
-//   });
 
 
 
- 
+ScrollTrigger.matchMedia({
 
-
-
-
-
-
-
-
-var parallaximgdesk = gsap.timeline();
-parallaximgdesk.to('.int-s1',{backgroundPosition: "100% 10%"});
-
-    ScrollTrigger.create({
-    trigger: "#s1",
-    start: "left left",
-    horizontal: true,
-    scroller: scrollbar,
-    animation: parallaximgdesk,
-    scrub: true,
-    // markers: true
-  });
-
-
-
-
-
-
-
-
-
-
-const imgparallaxleft = gsap.utils.toArray('#int-img');
-
-imgparallaxleft.forEach((parallax, i) => {
-  const anim = gsap.to(parallax, {backgroundPosition: "100% 50%"});
-  ScrollTrigger.create({
-    trigger: parallax,
-    start: "left right",
-    animation: anim,
-    horizontal: true,
-    scroller: scrollbar,
-    scrub: true
-  });
-});
-
-
-const imgparallaxright = gsap.utils.toArray('#int-right');
-
-imgparallaxright.forEach((parallax, i) => {
-  const anim = gsap.to(parallax, {backgroundPosition: "0% 50%"});
-  ScrollTrigger.create({
-    trigger: parallax,
-    start: "left right",
-    animation: anim,
-    horizontal: true,
-    scroller: scrollbar,
-    scrub: true
-  });
-});
-
-
-
-const imgparallaxzoomin = gsap.utils.toArray('#int-imgzin');
-
-imgparallaxzoomin.forEach((parallax, i) => {
-  const anim2 = gsap.to(parallax, {backgroundSize: "100%"});
-  ScrollTrigger.create({
-    trigger: parallax,
-    start: "left right",
-    animation: anim2,
-    horizontal: true,
-    scroller: scrollbar,
-    scrub: true
-  });
-});
-
-
-
-
-// -------rotating picture------//
-
-const imgrotate = gsap.utils.toArray('#picture');
-
-imgrotate.forEach((parallax, i) => {
-  const anim3 = gsap.to(parallax, {rotate: '-10deg'});
-  ScrollTrigger.create({
-    trigger: parallax,
-    start: "left right",
-    animation: anim3,
-    horizontal: true,
-    scroller: scrollbar,
-    scrub: true
-  });
-});
-
-
-
-
-
-
-
-// -----------change color of the navbar on scroll------///
-
-
-window.addEventListener("load", function () {
-  const scrollNavElems = document.querySelectorAll("[data-navcolor]");
-  scrollNavElems.forEach((navSection, i) => {
-    const prevBg = i === 0 ? "" : scrollNavElems[i - 1].dataset.navcolor;
+  // desktop
+  "(min-width: 769px)": function() {
+    // setup animations and ScrollTriggers for screens 800px wide or greater (desktop) here...
+    // These ScrollTriggers will be reverted/killed when the media query doesn't match anymore.    
     
-
-    ScrollTrigger.create({
-      trigger: navSection,
-      scroller: scrollbar,
-      start: "left 90%",
-      horizontal: true,
-      onEnter: () =>
-        gsap.to("#navbar", 1, {backgroundColor: navSection.dataset.navcolor, overwrite: "auto"}),
-
-        
-        
-
-      onLeaveBack: () =>
-        gsap.to("#navbar", 1, {
-          backgroundColor: prevBg,
-          overwrite: "auto"
-        })
-    });
-  });
-});
+    scrollbarResponsive();
+    // $('link[href="./mobstyle.css"]').remove();
+    // $('head').append('<link href="./style.css" rel="stylesheet" id="newcss" />');
 
 
-
-
-
-
-
-
-
-// Change body background color for various sections   //
-window.addEventListener("load", function () {
-  const scrollColorElems = document.querySelectorAll("[data-bgcolor]");
-  scrollColorElems.forEach((colorSection, i) => {
-    const prevBg = i === 0 ? "" : scrollColorElems[i - 1].dataset.bgcolor;
-    const prevText = i === 0 ? "" : scrollColorElems[i - 1].dataset.textcolor;
     
+                // ----Menu reveal animation-----//
 
-    ScrollTrigger.create({
-      trigger: colorSection,
-      scroller: scrollbar,
-      start: "left 90%",
-      horizontal: true,
-      onEnter: () =>
-        gsap.to("body", 1, {backgroundColor: colorSection.dataset.bgcolor, color: colorSection.dataset.textcolor, overwrite: "auto"}),
+                var menutl = new TimelineMax({paused: true});
+                
 
-        
-        
-
-      onLeaveBack: () =>
-        gsap.to("body", 1, {
-          backgroundColor: prevBg,
-          color: prevText,
-          overwrite: "auto"
-        })
-    });
-  });
-});
+                menutl
+                .to('#navbar', 1, {background: 'transparent'})
+                    .to('#mline1', 1, {x: -30, ease: Expo.easeInOut}, '-=2')
+                    .to('#mline3', 1, {x: 30, ease: Expo.easeInOut}, '-=2')
+                    .to('#menu', 1.5, {display: 'flex', x: 0,  ease: Expo.easeInOut }, '-=2')
+                    .to('#closebtn', 0.5, {x:0, opacity: 1, display: 'block'}, '-=0.5')
+                    .to('#abouttext', 0.5, {opacity: 1, display: 'block'}, '-=0.3')
+                    .to('.wrapper', {position: 'fixed'})
 
 
 
+                menutl.reverse();
+                $(document).on("click", "#openbtn", function() {
+                  menutl.reversed(!menutl.reversed());
+                });
+                $(document).on("click", "#closebtn", function() {
+                  menutl.reversed(!menutl.reversed());
+                });
+                $(document).on("click", ".mn", function() {
+                  menutl.reversed(!menutl.reversed());
+                });
+
+            
+                
+
+
+          // Change body background color for various sections   //
+          window.addEventListener("load", function () {
+            const scrollColorElems = document.querySelectorAll("[data-bgcolor]");
+            scrollColorElems.forEach((colorSection, i) => {
+              const prevBg = i === 0 ? "" : scrollColorElems[i - 1].dataset.bgcolor;
+              const prevText = i === 0 ? "" : scrollColorElems[i - 1].dataset.textcolor;
+              
+
+              ScrollTrigger.create({
+                trigger: colorSection,
+                scroller: scrollbar,
+                start: "left 90%",
+                horizontal: true,
+                onEnter: () =>
+                  gsap.to("body", 1, {backgroundColor: colorSection.dataset.bgcolor, color: colorSection.dataset.textcolor, overwrite: "auto"}),
+
+                  
+                  
+
+                onLeaveBack: () =>
+                  gsap.to("body", 1, {
+                    backgroundColor: prevBg,
+                    color: prevText,
+                    overwrite: "auto"
+                  })
+              });
+            });
+          });
+
+
+
+
+          // -----------change color of the navbar on scroll------///
+
+          window.addEventListener("load", function () {
+            const scrollNavElems = document.querySelectorAll("[data-navcolor]");
+            scrollNavElems.forEach((navSection, i) => {
+              const prevBg = i === 0 ? "" : scrollNavElems[i - 1].dataset.navcolor;
+              
+
+              ScrollTrigger.create({
+                trigger: navSection,
+                scroller: scrollbar,
+                start: "left 90%",
+                horizontal: true,
+                onEnter: () =>
+                  gsap.to("#navbar", 1, {backgroundColor: navSection.dataset.navcolor, overwrite: "auto"}),
+
+                  
+                  
+
+                onLeaveBack: () =>
+                  gsap.to("#navbar", 1, {
+                    backgroundColor: prevBg,
+                    overwrite: "auto"
+                  })
+              });
+            });
+          });
 
 
 
 
 
 
-// ----stat line animation ------//
+            // ----parallax the images to zoom in ----//
 
-const reveal = gsap.utils.toArray('.numline');
+            const imgparallaxzoomin = gsap.utils.toArray('#int-imgzin');
 
-reveal.forEach((numline, i) => {
-  const lineanim = gsap.fromTo(numline,2,  {scaleX:0}, {scaleX: 1});
-  ScrollTrigger.create({
-    trigger: numline,
-    start: "left 80%",
-    animation: lineanim,
-    horizontal: true,
-    scroller: scrollbar,
-    // markers: true
+            imgparallaxzoomin.forEach((parallax, i) => {
+              const anim2 = gsap.to(parallax, {backgroundSize: "100%"});
+              ScrollTrigger.create({
+                trigger: parallax,
+                start: "left right",
+                animation: anim2,
+                horizontal: true,
+                scroller: scrollbar,
+                scrub: true
+              });
+            });
+
+
+            // -------poppy flower animation----//
+
+              var poppy = gsap.timeline();
+
+              poppy.to(".poppyflower",2, {rotate: '40deg', marginLeft: '-50vh'});
+
+                ScrollTrigger.create({
+
+                  trigger: ".poppy-flower",
+                  start: "left right",
+                  horizontal: true,
+                  scroller: scrollbar,
+                  animation: poppy,
+                  scrub: true,
+                  // markers: true
+                
+              });
+
+
+
+              //-------- parallax the cover image-----//
+
+              var parallaximgdesk = gsap.timeline();
+              parallaximgdesk.to('.int-s1',{backgroundPosition: "100% 10%"});
+
+                  ScrollTrigger.create({
+                  trigger: "#s1",
+                  start: "left left",
+                  horizontal: true,
+                  scroller: scrollbar,
+                  animation: parallaximgdesk,
+                  scrub: true,
+                  // markers: true
+                });
+
+
+
+                // -------parallax the images to left-------//
+
+                const imgparallaxleft = gsap.utils.toArray('#int-img');
+
+                imgparallaxleft.forEach((parallax, i) => {
+                  const anim = gsap.to(parallax, {backgroundPosition: "100% 50%"});
+                  ScrollTrigger.create({
+                    trigger: parallax,
+                    start: "left right",
+                    animation: anim,
+                    horizontal: true,
+                    scroller: scrollbar,
+                    scrub: true
+                  });
+                });
+
+
+
+                // ----parallax the image to right-----//
+
+                const imgparallaxright = gsap.utils.toArray('#int-right');
+
+                imgparallaxright.forEach((parallax, i) => {
+                  const anim = gsap.to(parallax, {backgroundPosition: "0% 50%"});
+                  ScrollTrigger.create({
+                    trigger: parallax,
+                    start: "left right",
+                    animation: anim,
+                    horizontal: true,
+                    scroller: scrollbar,
+                    scrub: true
+                  });
+                });
+
+
+
+                // -------rotating picture------//
+
+                const imgrotate = gsap.utils.toArray('#picture');
+
+                imgrotate.forEach((parallax, i) => {
+                  const anim3 = gsap.to(parallax, {rotate: '-10deg'});
+                  ScrollTrigger.create({
+                    trigger: parallax,
+                    start: "left right",
+                    animation: anim3,
+                    horizontal: true,
+                    scroller: scrollbar,
+                    scrub: true
+                  });
+                });
+
+
+
+                // ----stat line animation ------//
+
+                const reveal = gsap.utils.toArray('.numline');
+
+                reveal.forEach((numline, i) => {
+                  const lineanim = gsap.fromTo(numline,2,  {scaleX:0}, {scaleX: 1});
+                  ScrollTrigger.create({
+                    trigger: numline,
+                    start: "left 80%",
+                    animation: lineanim,
+                    horizontal: true,
+                    scroller: scrollbar,
+                    // markers: true
+                  
+                    
+                  });
+                });
+
+
+                    // ----Callout animation ------//
+
+                  const revealcallout= gsap.utils.toArray('.callout');
+
+                  revealcallout.forEach((callout, i) => {
+                    const calloutanim = gsap.fromTo(callout,1,  {opacity: 0, y: 10}, {opacity: 1, y: 0});
+                    ScrollTrigger.create({
+                      trigger: callout,
+                      start: "left 80%",
+                      animation: calloutanim,
+                      horizontal: true,
+                      scroller: scrollbar,
+                      // markers: true
+                    
+                      
+                    });
+                  });
+
+
+                    // On click the about text on the menu, open the about section
+
+                  document.getElementById('abouttext').onclick = function() {aboutus()};
+                  function aboutus(){
   
-    
-  });
-});
+                            gsap.to('.about-container', 0.5, {opacity: 1, display: 'grid'});
+                            gsap.to('.closeaboutwrapper', 0.5, {opacity: 1, display: 'flex', position: 'fixed'});
+                            gsap.to('.wrapper', 0.5, {position: 'fixed'});
+                    }
+
+
+  },
 
 
 
 
+  //---------------- Mobile JS code---------------------//
+
+  "(max-width: 768px)": function() {
+    // The ScrollTriggers created inside these functions are segregated and get
+    // reverted/killed when the media query doesn't match anymore. 
+
+    Scrollbar.destroy(scrollbar);
+  //   $('link[href="./style.css"]').remove();
+  // $('head').append('<link href="./mobstyle.css" rel="stylesheet" id="newcss" />');
 
 
-
-
-
-
-
-
-
-var poppy = gsap.timeline();
-
-poppy.to(".poppyflower",2, {rotate: '40deg', marginLeft: '-50vh'});
-
-  ScrollTrigger.create({
-
-    trigger: ".poppy-flower",
-    start: "left right",
-    horizontal: true,
-    scroller: scrollbar,
-    animation: poppy,
-    scrub: true,
-    // markers: true
   
-});
+
+          // Change body background color for various sections   //
+          window.addEventListener("load", function () {
+            const scrollColorElems = document.querySelectorAll("[data-bgcolor]");
+            scrollColorElems.forEach((colorSection, i) => {
+              const prevBg = i === 0 ? "" : scrollColorElems[i - 1].dataset.bgcolor;
+              const prevText = i === 0 ? "" : scrollColorElems[i - 1].dataset.textcolor;
+              
+
+              ScrollTrigger.create({
+                trigger: colorSection,
+                // scroller: scrollbar,
+                start: "top bottom",
+                // horizontal: true,
+                onEnter: () =>
+                  gsap.to("body", 1, {backgroundColor: colorSection.dataset.bgcolor, color: colorSection.dataset.textcolor, overwrite: "auto"}),
+
+                  
+                  
+
+                onLeaveBack: () =>
+                  gsap.to("body", 1, {
+                    backgroundColor: prevBg,
+                    color: prevText,
+                    overwrite: "auto"
+                  })
+              });
+            });
+          });
+
+
+
+
+            // ----Callout animation ------//
+
+            const revealcallout= gsap.utils.toArray('.callout');
+
+            revealcallout.forEach((callout, i) => {
+              const calloutanim = gsap.fromTo(callout,1,  {opacity: 0, y: 10}, {opacity: 1, y: 0});
+              ScrollTrigger.create({
+                trigger: callout,
+                start: "top bottom",
+                animation: calloutanim,
+               
+              });
+            });
+
+
+
+
+
+
+                    // On click of the arrow down scroll to the intro chapter
+
+                  document.getElementById('mobarrowbtn').onclick = function() {linkdown()};
+                  function linkdown(){
+          
+                    gsap.to(window, 0.5, {scrollTo:'#introchapter'});
+                  }
+          
+
+                    // On click of the arrow up scroll to the top intro chapter
+                  document.getElementById('mobarrowend').onclick = function() {linktostart()};
+                  function linktostart(){
+          
+                    gsap.to(window, 0, {scrollTo:'#s1'});
+                  }
+
+
+
+                  // on click of chapters scroll to respective chapter
+
+                  document.getElementById('mobintro').onclick = function() {linkintro()};
+                  function linkintro(){
+          
+                    gsap.to(window, 0.5, {scrollTo:'#introchapter'});
+                  }
+
+                  document.getElementById('mobchap1').onclick = function() {linkchap1()};
+                  function linkchap1(){
+          
+                    gsap.to(window, 0.5, {scrollTo:'#chapter1'});
+                  }
+
+                  document.getElementById('mobchap2').onclick = function() {linkchap2()};
+                  function linkchap2(){
+          
+                    gsap.to(window, 0.5, {scrollTo:'#chapter2'});
+                  }
+
+                  document.getElementById('mobchap3').onclick = function() {linkchap3()};
+                  function linkchap3(){
+          
+                    gsap.to(window, 0.5, {scrollTo:'#chapter3'});
+                  }
+
+                  document.getElementById('mobchap4').onclick = function() {linkchap4()};
+                  function linkchap4(){
+          
+                    gsap.to(window, 0.5, {scrollTo:'#chapter4'});
+                  }
+
+                  document.getElementById('mobchap5').onclick = function() {linkchap5()};
+                  function linkchap5(){
+          
+                    gsap.to(window, 0.5, {scrollTo:'#chapter5'});
+                  }
+
+                  document.getElementById('mobconc').onclick = function() {linkconclusion()};
+                  function linkconclusion(){
+          
+                    gsap.to(window, 0.5, {scrollTo:'#conc'});
+                  }
+
+
+
+
+
+
+                  
+           
+                // On click of the about link on small mobile navbar, open the about section for mobile
+                      
+                document.getElementById('about').onclick = function() {aboutus()};
+                function aboutus(){
+
+                      gsap.to('.about-container', 0.5, {opacity: 1, display: 'block'});
+                      gsap.to('.closeaboutwrapper', 0.5, {opacity: 1, display: 'flex', position: 'fixed'});
+                      gsap.to('.wrapper', 0.5, {position: 'fixed'});
+                }
+                            
 
 
 
@@ -465,51 +675,88 @@ poppy.to(".poppyflower",2, {rotate: '40deg', marginLeft: '-50vh'});
 
 
 
+         
+
+
+  },
 
 
 
 
 
-let listItems = [...document.querySelectorAll('#li')];
+  // all 
+  "all": function() {
+    // ScrollTriggers created here aren't associated with a particular media query,
+    // so they persist.    
 
 
-let options = {
-    rootMargin: '0%',
-    threshold: 0.3
-}
+    // ---------animate the chapter title and stats letters in on scroll ----//
+        let listItems = [...document.querySelectorAll('#li')];
 
-let observer = new IntersectionObserver(showItem, options);
 
-function showItem(entries){
-    entries.forEach(entry => {
-        if(entry.isIntersecting){
-            let letters = [...entry.target.querySelectorAll('span')];
-            letters.forEach((letter, idx) => {
-                setTimeout(() =>{
-                    letter.classList.add('active');
-                }, idx * 50)
-            })
-            entry.target.children[0].classList.add('active');
+        let options = {
+            rootMargin: '0%',
+            threshold: 0.3
         }
-    })
-}
+
+        let observer = new IntersectionObserver(showItem, options);
+
+        function showItem(entries){
+            entries.forEach(entry => {
+                if(entry.isIntersecting){
+                    let letters = [...entry.target.querySelectorAll('span')];
+                    letters.forEach((letter, idx) => {
+                        setTimeout(() =>{
+                            letter.classList.add('active');
+                        }, idx * 50)
+                    })
+                    entry.target.children[0].classList.add('active');
+                }
+            })
+        }
 
 
 
-listItems.forEach(item =>{
+        listItems.forEach(item =>{
 
-    let newString = '';
-    let itemText = item.children[0].innerText.split('');
+            let newString = '';
+            let itemText = item.children[0].innerText.split('');
 
-    itemText.map(letter =>(newString += letter ==' ' ? `<span class='gap'></span>` : `<span>${letter}</span>`))
-    item.innerHTML = newString;
+            itemText.map(letter =>(newString += letter ==' ' ? `<span class='gap'></span>` : `<span>${letter}</span>`))
+            item.innerHTML = newString;
 
-    // To log the characters arrays
-    console.log(itemText)
+            // To log the characters arrays
+            console.log(itemText)
 
-    observer.observe(item);
+            observer.observe(item);
 
-})
+        })
+
+
+
+
+           
+
+            
+
+            // On click of the close arrow button on the about section close the about section for both desktop and mobile
+
+                  document.getElementById('closeabout').onclick = function() {closeaboutus()};
+                  function closeaboutus(){
+
+                        gsap.to('.about-container', 0.5, {opacity: 0, display: 'none'});
+                        gsap.to('.closeaboutwrapper', 0.5, {opacity: 0, display: 'none'});
+                        gsap.to('.wrapper', 0.5, {position: 'relative'});
+                 }
+
+
+
+
+
+
+  }
+
+});
 
 
 
@@ -570,114 +817,6 @@ listItems.forEach(item =>{
 
 
 
-
-
-
-
-// let menu = document.querySelector('.menu');
-// let items = document.querySelectorAll('.menu-item');
-// let clones = [];
-// let disableScroll = false;
-// let scrollHeight = 0;
-// let scrollpos = 0;
-// let clonesHeight = 0;
-
-
-// function getScrollPos(){
-//     return menu. scrollTop; //Amount window scrolled
-// }
-
-// function setScrollPos(pos){
-//     menu.scrollTop = pos;
-// }
-
-// function getCLonesHeight(){
-//   cloneHeight = 0;
-
-//   clones.forEach(clone => {
-//     cloneHeight += clone.offsetHeight; //offsetHeight returns height of element
-
-//   })
-
-//   return cloneHeight;
-// }
-
-
-// //Recalculate dimensions when screen is resized
-
-// function reCalc(){
-//     scrollpos = getScrollPos();
-//     scrollHeight = menu.scrollHeight; //Height of an elements content, including content not visible on the screen
-//     clonesHeight = getClonesHeight();
-
-//     if(scrollpos <= 0){
-//         setScrollPos(1); //Initial set at 1px to enable upwards scrolling
-//     }
-
-//   }
-
-
-//   function scrollUpdate(){
-//     if(!disableScroll){
-//         scrollpos = getScrollPos();
-//         if(cloneHeight + scrollpos >= scrollheight){
-//           //scroll back to top when we reach bottom
-//           setScrollPos(1);
-//           disableScroll = true;
-//         } else if (scrollpos <= 0){
-//           //scroll to bottom when we reach the top
-//           setScrollPos(scrollheight = clonesHeight);
-//           disableScroll = true;
-//         }
-//     }
-
-//     if(disableScroll){
-//       //Disable scroll-jumping for a short period to avoid flickering
-
-//       window.setTimeout(() =>{
-//           disableScroll = false;
-//       }, 40);
-//     }
-//   }
-
-
-//   function onLoad(){
-//       items.forEach(item => {
-//           const clone = item.cloneNode(true);
-//           menu.appendChild(clone);
-//           clone.classList.add('js-clone');
-//       });
-
-//       clones = menu.querySelector('.js-clone');
-
-//       reCalc();
-
-//       menu.addEventListener('scroll', () =>{
-//           window.requestAnimationFrame(scrollUpdate);
-//       }, false);
-
-
-//       window.addEventListener('resize', () => {
-//         window.requestAnimationFrame(reCalc);
-//       }, false)
-//   }
-
-// window.onload = onLoad();
-
-
-
-
-
-
-gsap.registerPlugin(ScrollToPlugin);
-
-
-
-// document.querySelectorAll("arrowbtn").forEach((btn, index) => {
-//   btn.addEventListener("click", () => {
-//     gsap.to(window, {duration: 0.5, scrollTo: "#chapter1"});
-//   });
-// });
 
 
 
