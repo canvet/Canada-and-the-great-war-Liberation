@@ -41,6 +41,10 @@ body {
   display: none;
 }
 
+.scrollerbtn-container {
+  display: none;
+}
+
 .snavbar-container {
   width: 15vh;
   height: 100vh;

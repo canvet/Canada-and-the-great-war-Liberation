@@ -32,6 +32,47 @@ body {
   position: relative;
 }
 
+.scrollerbtn-container {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  z-index: 777;
+  display: none;
+  opacity: 0;
+  padding: 5vh;
+}
+
+.scrollleft, .scrollright {
+  width: 10vh;
+  height: 10vh;
+  border-radius: 100%;
+  background: red;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  cursor: pointer;
+}
+
+.scrollright {
+  margin-left: 2vh;
+}
+
+.arrowleft {
+  width: 4vh;
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+
+.arrowright {
+  width: 4vh;
+}
+
 .about-container {
   width: 100%;
   height: 100%;
@@ -227,14 +268,13 @@ body {
   width: 10vw;
   height: 10vw;
   position: fixed;
-  z-index: 99999;
+  z-index: 889;
   right: 0;
   bottom: 0;
   overflow: hidden;
   background: transparent;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  display: none;
+  opacity: 0;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -246,8 +286,7 @@ body {
 .abouttext {
   position: absolute;
   z-index: 99998;
-  opacity: 0;
-  display: none;
+  opacity: 1;
   cursor: pointer;
 }
 
@@ -407,6 +446,7 @@ body {
   font-family: var(--proxima);
   font-size: 1.7vh;
   color: #919191;
+  text-transform: uppercase;
 }
 
 .peoplenames {
@@ -539,6 +579,7 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  z-index: 888;
 }
 
 .mobarrowcontainer2 {
@@ -1651,7 +1692,7 @@ article {
           align-items: flex-end;
 }
 
-.p5mdw2 {
+.p5mdw3 {
   background-image: url(part5-img4.jpg);
 }
 

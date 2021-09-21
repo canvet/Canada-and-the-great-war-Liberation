@@ -230,6 +230,94 @@ function scrollbarResponsive() {
 
 
 
+            // Scroll the screen to the right for 1000 px on click of the right button
+          document.getElementById('scrollbtnright').onclick = function() {scrolltoright()};
+          function scrolltoright(){
+
+
+            myHorizontalScrollbar.scrollIntoView(document.querySelector('#scrollbar'), {
+              offsetLeft: -1000,
+            });
+
+            
+            
+          }
+
+
+            // Scroll the screen to the left for 1000 px on click of the left button
+            document.getElementById('scrollbtnleft').onclick = function() {scrolltoleft()};
+            function scrolltoleft(){
+  
+  
+              myHorizontalScrollbar.scrollIntoView(document.querySelector('#scrollbar'), {
+                offsetLeft: 1000,
+              });
+  
+              
+              
+            }
+  
+
+
+
+
+        // Make the scroll buttons appear when the intro chapter scroll in
+
+          $(document).ready(function() {
+                var timer;
+                // hide initially
+                var scrollbtnappear = gsap.timeline();
+                scrollbtnappear.to("#scrollbtn",1, {opacity: 1, display: 'flex'});
+
+                ScrollTrigger.create({
+
+                  trigger: "#introchapter",
+                  endTrigger: ".w17",
+                  start: "left left",
+                  end: "left right",
+                  horizontal: true,
+                  scroller: scrollbar,
+                  animation: scrollbtnappear,
+                  toggleActions: 'play none none reverse',
+                  
+              });
+
+
+              // var scrollbtnhide = gsap.timeline();
+              // scrollbtnhide.to("#scrollbtn",1, {opacity: 0});
+
+              //   ScrollTrigger.create({
+
+              //     trigger: ".w17",
+              //     start: "left right",
+              //     horizontal: true,
+              //     scroller: scrollbar,
+              //     animation: scrollbtnhide,
+              //     toggleActions: 'play none none reverse',
+                  
+              // });
+
+
+
+             
+
+                
+            // Fade out and in the buttons if the mouse is not moved for 3 seconds
+                $(document).mousemove(function() {
+                    if (timer) {
+                        clearTimeout(timer);
+                        timer = 0;
+                    }
+                    $('#scrollbtn').fadeIn();
+                    timer = setTimeout(function() {
+                        $('#scrollbtn').fadeOut();
+                    }, 3000)
+                });
+
+
+            });
+
+
 
 
 
@@ -278,7 +366,7 @@ ScrollTrigger.matchMedia({
                     .to('#mline3', 1, {x: 30, ease: Expo.easeInOut}, '-=2')
                     .to('#menu', 1.5, {display: 'flex', x: 0,  ease: Expo.easeInOut }, '-=2')
                     .to('#closebtn', 0.5, {x:0, opacity: 1, display: 'block'}, '-=0.5')
-                    .to('#abouttext', 0.5, {opacity: 1, display: 'block'}, '-=0.3')
+                    .to('#abouttext', 0.5, {opacity: 1, display: 'flex'}, '-=0.3')
                     .to('.wrapper', {position: 'fixed'})
 
 

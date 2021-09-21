@@ -176,7 +176,7 @@
 
 
                   <div class="mnc">
-                    <h1 id="chap2link" class="mn"><i>“Viva les canadiens!”</i></h1>
+                    <h1 id="chap2link" class="mn"><i>“Vive les canadiens!”</i></h1>
                     <!-- <h2 class="ms">Map: The last 100 Days</h2> -->
                   </div>
             
@@ -266,9 +266,9 @@
 
 <!-- About text on menu -->
 
-<div  class="abouttext-container">
+<div id="abouttext" class="abouttext-container">
 
-  <h3 id="abouttext" class="mh abouttext">About</h3>
+  <h3 class="mh abouttext">About</h3>
 
 </div>
 
@@ -349,18 +349,23 @@
           </li>
 
           <li class="people">
-            <h4 class="designation">Admin</h4>
+            <h4 class="designation">Administrative supervisor</h4>
             <h3 class="peoplenames">Doris Williams</h3>
           </li>
 
           <li class="people">
             <h4 class="designation">Researcher/Admin assistant</h4>
-            <h3 class="peoplenames">Stephanie Slegtenhorst</h3>
+            <h3 class="peoplenames">Stephanie Gorin</h3>
           </li>
 
           <li class="people">
             <h4 class="designation">Web Designer</h4>
             <h3 class="peoplenames">Ankush Katoch</h3>
+          </li>
+
+          <li class="people">
+            <h4 class="designation">Web and social media co-ordinator</h4>
+            <h3 class="peoplenames">Eric Salgado-Valle</h3>
           </li>
 
           <li class="people">
@@ -426,15 +431,31 @@
 
 
 
+<!-- Scrolling buttons -->
+
+<div id="scrollbtn" class="scrollerbtn-container">
+
+          <div id="scrollbtnleft" class="scrollleft">
+                  <img class="arrowleft" src="arrow.svg" alt="">
+          </div>
+
+
+          <div id="scrollbtnright" class="scrollright">
+                  <img class="arrowright" src="arrow.svg" alt="">
+        </div>
+
+  
+</div>
 
 
 
 
 
+
+
+<!-- Main Horizontal scrollbar wrapper -->
 <div id="scrollbar">
   <div id="page" class="wrapper">
-
-    
 
 
     <section data-navcolor="#C72026" id="s1" class="int-s1">
@@ -586,7 +607,7 @@
 
               <div class="num-lower">
                 <div id="n3" class="numline"></div>
-                <h3 class="md-text">French refugees were internally displaced by Jan. 1, 1915</h3>
+                <h3 class="md-text">French refugees were internally displaced by<br>Jan. 1, 1915</h3>
               </div>
               
             </div>
@@ -740,7 +761,7 @@
         <p class="photocredittext creditgrey">RIGHT</p>
         <p class="photocredittext white">A DOG’S LIFE</p>
         <p class="photocredittext white">
-          German troops enter Brussels at the war’s onset in August 1914. A sarcastic note was incorporated in a photograph (below) of Belgian refugees fleeing the German advance as a cavalry troop passes by.</p>
+          German troops enter Brussels at the war’s onset in August 1914. A sarcastic note was incorporated in a photograph of Belgian refugees fleeing the German advance as a cavalry troop passes by.</p>
           <p class="photocredittext creditgrey">(Chronicle/Alamy/HH4MXP)</p>
       </div>
 
@@ -877,7 +898,7 @@
 
           <div class="num-lower">
             <div id="n2" class="numline"></div> 
-          <h3 class="md-text">canadian soldiers died in the great war</h3>
+          <h3 class="md-text">canadian soldiers killed in the great war</h3>
           </div>
 
         </div>
@@ -891,7 +912,7 @@
 
 <section id="" class="calloutsection">
 
-  <h3 class="callout">“It made one feel that all this fighting had been worthwhile to see a people so glad to be <span style="color: #7C7C00;">delivered from hard rulers</span>."</h3>
+  <h3 class="callout">“It made one feel that all this fighting had been worthwhile to see a people so glad to be <span style="color: #7C7C00;">delivered from hard rulers</span>.”</h3>
 
     
 
@@ -1271,8 +1292,7 @@
 
 <section class="calloutsection" style="background: white;">
 
-  <h3 class="callout">“I could not read the accounts of Belgian sufferings without <span style="color: #74A184;">a deep compassion</span>
-    .”</h3>
+  <h3 class="callout">“I could not read the accounts of Belgian sufferings without <span style="color: #74A184;">a deep compassion</span>.”</h3>
 
     <div class="photocredits">
       <p class="photocredittext creditgrey">RIGHT</p>
@@ -1365,8 +1385,8 @@
           
     <!-- <p class="photocredittext" >FOR KING AND COUNTRY</p> -->
     <p class="photocredittext">
-      Troops march during training at Valcartier, Que. The camp was established in August 1914 as the Canadian Expeditionary Force mobilized. Almost half the Canadians who enlisted in the CEF were born overseas. A recruitment poster (right) rallies the Irish.</p>
-      <p class="photocredittext creditgrey">(Bain News Service/U.S. Library of Congress/2014697490; Wikimedia)</p>
+      Troops march during training at Valcartier, Que. The camp was established in August 1914 as the Canadian Expeditionary Force mobilized. Almost half the Canadians who enlisted in the CEF were born overseas.</p>
+      <p class="photocredittext creditgrey">(Bain News Service/U.S. Library of Congress/2014697490)</p>
 </div>
 
 </section>
@@ -2544,13 +2564,14 @@ Canadian participation in the Hundred Days campaign was the most important and i
 
 <section id="int-img"  class="wide w14">
 
-          <div class="photocredits pcinbound">
-                  
-            <p class="photocredittext" >FOG OF WAR</p>
-            <p class="photocredittext">
-              German infantry (below) train for a gas attack somewhere behind the Flanders front in 1918.</p>
-              <p class="photocredittext creditgrey">(Scherl/Süddeutsche Zeitung/Alamy/C45BHF)</p>
-        </div>
+         
+        <div class="photocredits pcinbound">
+          
+          <p class="photocredittext" >LAND AND AIR</p>
+          <p class="photocredittext">
+            British Mark V tanks, first deployed in 1918, advance near Cambrai during the Battle of St. Quentin Canal.</p>
+            <p class="photocredittext creditgrey">(De Luan/Alamy/2B9WNR8)</p>
+      </div>
 
 </section>
 
@@ -2592,11 +2613,11 @@ Canadian participation in the Hundred Days campaign was the most important and i
 <section id="int-img"  class="mdwide mdw9">
 
   <div class="photocredits pcinbound">
-          
-    <p class="photocredittext" >LAND AND AIR</p>
+                  
+    <p class="photocredittext" >FOG OF WAR</p>
     <p class="photocredittext">
-      British Mark V tanks, first deployed in 1918, advance near Cambrai during the Battle of St. Quentin Canal.</p>
-      <p class="photocredittext creditgrey">(De Luan/Alamy/2B9WNR8)</p>
+      German infantry (below) train for a gas attack somewhere behind the Flanders front in 1918.</p>
+      <p class="photocredittext creditgrey">(Scherl/Süddeutsche Zeitung/Alamy/C45BHF)</p>
 </div>
 
 </section>
@@ -2766,7 +2787,7 @@ Canadian participation in the Hundred Days campaign was the most important and i
           
     <p class="photocredittext" >DESPERATE STRAITS</p>
     <p class="photocredittext">
-      Civilian refugees  move along a road near Ypres, Belgium. A girl feeds soup to a wounded soldier in a wartime poster, one of many methods used to rally support for the Allied cause.</p>
+      Refugees  move along a road near Ypres, Belgium. A girl feeds soup to a wounded soldier in a wartime poster, one of many methods used to rally support for the Allied cause.</p>
       <p class="photocredittext creditgrey">(Chronicle/Alamy/DRHWHR: LAC)</p>
 </div>
 
@@ -2796,7 +2817,7 @@ Canadian participation in the Hundred Days campaign was the most important and i
 
   <div class="photocredits pcinbound">
           
-    <p class="photocredittext" >DESPERATE STRAITS</p>
+    <!-- <p class="photocredittext" >DESPERATE STRAITS</p> -->
     <p class="photocredittext">
       At war’s end, Canadians held the easternmost point on the British sector of the Western Front, at Mons, Belgium, where British troops fought, and lost, their first battle in 1914.</p>
       <p class="photocredittext creditgrey">(F. Luis Mora/W.F. Powers Co./U.S. Library of Congress/2002719771)</p>
@@ -3098,7 +3119,7 @@ Canadian participation in the Hundred Days campaign was the most important and i
                 </li>
 
                 <li class="list" style="color: #723323;" id="li">
-                  <span>Generals</span>
+                  <span>General's</span>
                 </li>
 
                 <li class="list" style="color: #723323;" id="li">
@@ -4067,7 +4088,7 @@ Currie’s soldiers at the sharp end were less enthused. They had been pushed ha
 
 
 
-<section id="int-img"  class="mdwide p5mdw2">
+<section id="int-img"  class="mdwide p5mdw3">
 
 </section>
 
@@ -4229,7 +4250,7 @@ Currie’s soldiers at the sharp end were less enthused. They had been pushed ha
 
 <section id="" class="calloutsection">
 
-  <h3 class="callout">“The story is <span style="color: #808DB9;">too grand</span>to be forgotten.”</h3>
+  <h3 class="callout">“The story is <span style="color: #808DB9;">too grand</span> to be forgotten.”</h3>
 
 
   <div class="photocredits">
@@ -4453,7 +4474,7 @@ Currie’s soldiers at the sharp end were less enthused. They had been pushed ha
           
     <!-- <p class="photocredittext" >MEAN STREETS</p> -->
     <p class="photocredittext">
-      Canadian Major-General Edward Morrison and other officers talk with liberated Belgians near Mons, including one women wearing a Canadian badge. </p>
+      Canadian Major-General Edward Morrison and other officers talk with liberated Belgians near Mons, including a women wearing a Canadian badge.</p>
       <p class="photocredittext creditgrey">(LAC/3397235)</p>
 </div>
 
@@ -4568,7 +4589,7 @@ Currie’s soldiers at the sharp end were less enthused. They had been pushed ha
     <p class="photocredittext creditgrey" >LEFT</p>
     <p class="photocredittext" >ALLONS ENFANT DE LA PATRIE</p>
     <p class="photocredittext">
-      Private George Price (right) of Falmouth, N.S., is believed to be the last Canadian killed in the First World War. Aged 25, he died at Mons about two minutes before the Armistice took effect. He’s buried at St. Symphorien Military Cemetery just east of the liberated city. A poppy blooms at Tyne Cot Cemetery near Ypres, Belgium, resting place for 11,961 Commonwealth soldiers.</p>
+      Crowds parade through the streets singing “La Marseillaise” on Armistice Day in Paris.</p>
       <p class="photocredittext creditgrey">(American National Red Cross/U.S. Library of Congress/2017666573)</p>
 </div>
 
@@ -4600,51 +4621,51 @@ Currie’s soldiers at the sharp end were less enthused. They had been pushed ha
 
 <section id="int-img"  class="wide w17">
 
-<div class="end-container">
+              <div class="end-container">
 
 
- 
+              
 
-  <div class="photocredits pcinbound endphotocredit">
-          
-    <p class="photocredittext" >RETURN TO MONS</p>
-    <p class="photocredittext">
-      Grateful citizens of Mons, Belgium, welcome their Canadian liberators on Nov. 11, 1918, depicted in Inglis Sheldon-Williams’ 1920 oil-on-canvas.</p>
-      <p class="photocredittext creditgrey"> (Inglis Sheldon-Williams/CWM/19710261-0813)</p>
-</div>
-
-
-<h1 class="white theendtext">the end</h1>
+                <div class="photocredits pcinbound endphotocredit">
+                        
+                  <p class="photocredittext" >RETURN TO MONS</p>
+                  <p class="photocredittext">
+                    Grateful citizens of Mons, Belgium, welcome their Canadian liberators on Nov. 11, 1918, depicted in Inglis Sheldon-Williams’ 1920 oil-on-canvas.</p>
+                    <p class="photocredittext creditgrey"> (Inglis Sheldon-Williams/CWM/19710261-0813)</p>
+              </div>
 
 
-
-<div class="arrowcontainer2">
-
-          <h2 class="begintext white">Go to the beginning</h2>
-
-          <div id="arrowend" class="arrowbtn2">
-            <img class="arrow2" src="arrow.svg" alt="">
-          </div>
-
-</div>
+              <h1 class="white theendtext">the end</h1>
 
 
 
-<div class="mobarrowcontainer2">
+              <div class="arrowcontainer2">
 
-  <h2 class="begintext white">Go to the beginning</h2>
+                        <h2 class="begintext white">Go to the beginning</h2>
 
-  <div id="mobarrowend" class="mobarrowbtn2">
-    <img class="mobarrow2" src="arrow.svg" alt="">
-  </div>
+                        <div id="arrowend" class="arrowbtn2">
+                          <img class="arrow2" src="arrow.svg" alt="">
+                        </div>
 
-</div>
-
-
+              </div>
 
 
 
-</div>
+              <div class="mobarrowcontainer2">
+
+                <h2 class="begintext white">Go to the beginning</h2>
+
+                <div id="mobarrowend" class="mobarrowbtn2">
+                  <img class="mobarrow2" src="arrow.svg" alt="">
+                </div>
+
+              </div>
+
+
+
+
+
+              </div>
 
 
 </section>
