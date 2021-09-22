@@ -2,18 +2,34 @@
 
 
 // -----Wait for images to load completely then animate the overlay----//
-$('#scrollbar').waitForImages({
-  finished: function() {
-    // alert('All images have loaded.');
+// $('#scrollbar').waitForImages({
+//   finished: function() {
+//     // alert('All images have loaded.');
 
 
+//     var fadeoverlay = gsap.timeline({delay: 0})
+//     fadeoverlay.to(".overlay", 1, {opacity: 0, display: 'none'});
+//   },
+
+//   waitForAll: true
+// });
+
+
+
+//-----Fade the overlay animation on complete website load---//
+
+paceOptions = {
+  ajax: true,
+  document: true,
+  eventLag: false
+  };
+
+  Pace.on('done', function() {
+  
     var fadeoverlay = gsap.timeline({delay: 0})
-    fadeoverlay.to(".overlay", 1, {opacity: 0, display: 'none'});
-  },
+        fadeoverlay.to(".overlay", 1, {opacity: 0, display: 'none'});
 
-  waitForAll: true
-});
-
+ });
 
 
 
@@ -272,13 +288,14 @@ function scrollbarResponsive() {
                 ScrollTrigger.create({
 
                   trigger: "#introchapter",
-                  endTrigger: ".w17",
+                  // endTrigger: "#scrollbar",
                   start: "left left",
-                  end: "left right",
+                  // end: "left center",
                   horizontal: true,
                   scroller: scrollbar,
                   animation: scrollbtnappear,
                   toggleActions: 'play none none reverse',
+                  // markers: true,
                   
               });
 
@@ -342,6 +359,19 @@ function scrollbarResponsive() {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 ScrollTrigger.matchMedia({
 
   // desktop
@@ -354,33 +384,34 @@ ScrollTrigger.matchMedia({
     // $('head').append('<link href="./style.css" rel="stylesheet" id="newcss" />');
 
 
-    
-                // ----Menu reveal animation-----//
+              // ----Menu reveal animation-----//
 
-                var menutl = new TimelineMax({paused: true});
+              var menutl = new TimelineMax({paused: true});
+                              
+
+              menutl
+              .to('#navbar', 1, {background: 'transparent'})
+                  .to('#mline1', 1, {x: -30, ease: Expo.easeInOut}, '-=2')
+                  .to('#mline3', 1, {x: 30, ease: Expo.easeInOut}, '-=2')
+                  .to('#menu', 1, {display: 'flex', x: 0,  ease: Expo.easeInOut }, '-=2')
+                  .to('#closebtn', 0.3, {x:0, opacity: 1, display: 'block'}, '-=0.5')
+                  .to('#abouttext', 0.3, {opacity: 1, display: 'flex'}, '-=0.5')
+                  .to('.wrapper', {position: 'fixed'})
+
+
+
+              menutl.reverse();
+              $(document).on("click", "#openbtn", function() {
+                menutl.reversed(!menutl.reversed());
+              });
+              $(document).on("click", "#closebtn", function() {
+                menutl.reversed(!menutl.reversed());
+              });
+              $(document).on("click", ".mn", function() {
+                menutl.reversed(!menutl.reversed());
+              });
+
                 
-
-                menutl
-                .to('#navbar', 1, {background: 'transparent'})
-                    .to('#mline1', 1, {x: -30, ease: Expo.easeInOut}, '-=2')
-                    .to('#mline3', 1, {x: 30, ease: Expo.easeInOut}, '-=2')
-                    .to('#menu', 1.5, {display: 'flex', x: 0,  ease: Expo.easeInOut }, '-=2')
-                    .to('#closebtn', 0.5, {x:0, opacity: 1, display: 'block'}, '-=0.5')
-                    .to('#abouttext', 0.5, {opacity: 1, display: 'flex'}, '-=0.3')
-                    .to('.wrapper', {position: 'fixed'})
-
-
-
-                menutl.reverse();
-                $(document).on("click", "#openbtn", function() {
-                  menutl.reversed(!menutl.reversed());
-                });
-                $(document).on("click", "#closebtn", function() {
-                  menutl.reversed(!menutl.reversed());
-                });
-                $(document).on("click", ".mn", function() {
-                  menutl.reversed(!menutl.reversed());
-                });
 
             
                 
@@ -623,8 +654,8 @@ ScrollTrigger.matchMedia({
   //   $('link[href="./style.css"]').remove();
   // $('head').append('<link href="./mobstyle.css" rel="stylesheet" id="newcss" />');
 
-
   
+
 
           // Change body background color for various sections   //
           window.addEventListener("load", function () {
@@ -755,14 +786,12 @@ ScrollTrigger.matchMedia({
                       gsap.to('.closeaboutwrapper', 0.5, {opacity: 1, display: 'flex', position: 'fixed'});
                       gsap.to('.wrapper', 0.5, {position: 'fixed'});
                 }
-                            
 
 
 
 
 
-
-
+                
          
 
 
