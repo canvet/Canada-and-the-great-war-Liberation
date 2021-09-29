@@ -34,7 +34,7 @@ body {
   z-index: 99999999;
   position: fixed;
   margin: auto;
-  top: 250px;
+  top: 350px;
   left: 0;
   right: 0;
   bottom: 0;
@@ -519,7 +519,7 @@ body {
 
 .snavbar-container {
   width: 15vh;
-  height: 100vh;
+  height: 100%;
   position: fixed;
   z-index: 999;
   display: -webkit-box;
@@ -2228,4 +2228,4 @@ article {
 .endphotocredit {
   display: none;
 }
-/*# sourceMappingURL=mobstyle.css.map */
+/*# sourceMappingURL=mobstyle-v1.css.map */

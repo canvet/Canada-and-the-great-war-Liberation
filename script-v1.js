@@ -34,25 +34,25 @@ paceOptions = {
 
 
 // ----overlay text animation as loader----//
-var overlaytl = gsap.timeline({repeat: -1});
+// var overlaytl = gsap.timeline({repeat: -1});
 
-overlaytl.to('#otw1',2, {delay:1, opacity: 1});
-overlaytl.to('#os1',3, {letterSpacing: '0.5vh'}, '-=2');
-overlaytl.to('#otw1',2, {delay:1, opacity: 0}, '-=2');
+// overlaytl.to('#otw1',2, {delay:1, opacity: 1});
+// overlaytl.to('#os1',3, {letterSpacing: '0.5vh'}, '-=2');
+// overlaytl.to('#otw1',2, {delay:1, opacity: 0}, '-=2');
 
 
 
-overlaytl.to('#otw2',2, {delay:1, opacity: 1});
-overlaytl.to('#os2',3, {letterSpacing: '0.5vh'}, '-=2');
-overlaytl.to('#otw2',2, {delay:1, opacity: 0}, '-=2');
+// overlaytl.to('#otw2',2, {delay:1, opacity: 1});
+// overlaytl.to('#os2',3, {letterSpacing: '0.5vh'}, '-=2');
+// overlaytl.to('#otw2',2, {delay:1, opacity: 0}, '-=2');
 
-overlaytl.to('#otw3',2, {delay:1, opacity: 1});
-overlaytl.to('#os3',3, {letterSpacing: '0.5vh'}, '-=2');
-overlaytl.to('#otw3',2, {delay:1, opacity: 0}, '-=2');
+// overlaytl.to('#otw3',2, {delay:1, opacity: 1});
+// overlaytl.to('#os3',3, {letterSpacing: '0.5vh'}, '-=2');
+// overlaytl.to('#otw3',2, {delay:1, opacity: 0}, '-=2');
 
-overlaytl.to('#otw4',2, {delay:1, opacity: 1});
-overlaytl.to('#os4',3, {letterSpacing: '0.5vh'}, '-=2');
-overlaytl.to('#otw4',2, {delay:1, opacity: 0}, '-=2');
+// overlaytl.to('#otw4',2, {delay:1, opacity: 1});
+// overlaytl.to('#os4',3, {letterSpacing: '0.5vh'}, '-=2');
+// overlaytl.to('#otw4',2, {delay:1, opacity: 0}, '-=2');
 
 
 
@@ -72,9 +72,6 @@ overlaytl.to('#otw4',2, {delay:1, opacity: 0}, '-=2');
 //   gsap.to('.int-s1', {backgroundSize: 'cover'});
 
 // }
-
-
-
 
 
 
@@ -394,9 +391,9 @@ ScrollTrigger.matchMedia({
                   .to('#mline1', 1, {x: -30, ease: Expo.easeInOut}, '-=2')
                   .to('#mline3', 1, {x: 30, ease: Expo.easeInOut}, '-=2')
                   .to('#menu', 1, {display: 'flex', x: 0,  ease: Expo.easeInOut }, '-=2')
-                  .to('#closebtn', 0.3, {x:0, opacity: 1, display: 'block'}, '-=0.5')
-                  .to('#abouttext', 0.3, {opacity: 1, display: 'flex'}, '-=0.5')
-                  .to('.wrapper', {position: 'fixed'})
+                  .to('#closebtn', 0.3, {x:0, opacity: 1, display: 'block'}, '-=1')
+                  .to('#abouttext', 0.3, {opacity: 1, display: 'flex'}, '-=1')
+                  .to('.wrapper',0, {position: 'fixed'})
 
 
 
